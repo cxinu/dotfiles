@@ -1,8 +1,9 @@
 # cxinu/dotfiles
 - nvim
 - zsh
-- git
+- starship
 - alacritty
 - ranger
 - picom
+- git
 - dwm

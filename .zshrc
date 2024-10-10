@@ -31,6 +31,9 @@ alias cvim="NVIM_APPNAME=nvim.cxinu nvim"
 alias kvim="NVIM_APPNAME=nvim.kickstart nvim"
 alias svim="NVIM_APPNAME=nvim.synth nvim"
 
+# ranger
+alias rn="ranger"
+
 # dirs
 alias ..="cd .."
 alias ...="cd ../.."
