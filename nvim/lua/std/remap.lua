@@ -17,6 +17,7 @@ vim.keymap.set("n", "<leader>to", function() vim.opt.scrolloff = 999 - vim.o.scr
 vim.keymap.set("n", "<leader>ti", vim.cmd.IBLToggle, { desc = "Toggle Indent Blankline" })
 vim.keymap.set("n", "<leader>ts", vim.cmd.IBLToggleScope, { desc = "Toggle Scope Indent Blankline" })
 vim.keymap.set("n", "<leader>tu", vim.cmd.UndotreeToggle, { desc = "Toggle UndoTree" })
+vim.keymap.set("n", "<leader>tw", function() vim.o.wrap = not vim.o.wrap end, { desc = "Toggle Wrap" })
 
 -- diagnostics
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })

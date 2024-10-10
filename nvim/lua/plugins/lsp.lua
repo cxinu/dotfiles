@@ -14,21 +14,21 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             desc = "LSP actions",
             callback = function(event)
-                local opts = { buffer = event.buf }
-                vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover information", unpack(opts) })
-                vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[G]oto [D]efinition", unpack(opts) })
-                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[G]oto [D]eclaration", unpack(opts) })
-                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "[G]oto [I]mplementation", unpack(opts) })
-                vim.keymap.set("n", "go", vim.lsp.buf.type_definition, { desc = "[G]oto [T]ype Definition", unpack(opts) })
-                vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "[G]oto [R]eferences", unpack(opts) })
-                vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { desc = "[G]oto [S]ignature Help", unpack(opts) })
-                vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol", unpack(opts) })
-                vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions", unpack(opts) })
+                local buf = event.buf
+                vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover information", buffer = buf })
+                vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[G]oto [D]efinition", buffer = buf })
+                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[G]oto [D]eclaration", buffer = buf })
+                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "[G]oto [I]mplementation", buffer = buf })
+                vim.keymap.set("n", "go", vim.lsp.buf.type_definition, { desc = "[G]oto [T]ype Definition", buffer = buf })
+                vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "[G]oto [R]eferences", buffer = buf })
+                vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { desc = "[G]oto [S]ignature Help", buffer = buf })
+                vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol", buffer = buf })
+                vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions", buffer = buf })
                 vim.keymap.set(
                     { "n", "x" },
                     "<leader>cf",
                     function() vim.lsp.buf.format({ async = true }) end,
-                    { desc = "Format document/selection", unpack(opts) }
+                    { desc = "Format document/selection", buffer = buf }
                 )
             end,
         })
@@ -41,11 +41,35 @@ return {
             })
         end
 
+        local lua_ls = function()
+            require("lspconfig").lua_ls.setup({
+                capabilities = lsp_capabilities,
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = "LuaJIT",
+                        },
+                        diagnostics = {
+                            globals = { "vim" },
+                            -- disable = { "missing-fields", "incomplete-signature-doc" },
+                        },
+                        workspace = {
+                            library = {
+                                vim.env.VIMRUNTIME,
+                                "${3rd}/luv/library",
+                            },
+                        },
+                    },
+                },
+            })
+        end
+
         require("mason").setup({})
         require("mason-lspconfig").setup({
-            ensure_installed = { "ts_ls", "rust_analyzer", "gopls", "zls", "pyright", "clangd" },
+            ensure_installed = { "lua_ls", "ts_ls", "rust_analyzer", "gopls", "zls", "pyright", "clangd" },
             handlers = {
                 default_setup,
+                lua_ls = lua_ls,
             },
         })
 
