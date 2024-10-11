@@ -18,6 +18,7 @@ create_symlink() {
 }
 
 create_symlink "$CONFIG_DIR/nvim" "$HOME/.config/nvim"
+create_symlink "$CONFIG_DIR/.scripts" "$HOME/.scripts"
 create_symlink "$CONFIG_DIR/.gitconfig" "$HOME/.gitconfig"
 create_symlink "$CONFIG_DIR/.zshrc" "$HOME/.zshrc"
 create_symlink "$CONFIG_DIR/alacritty.toml" "$HOME/.config/alacritty.toml"

@@ -81,3 +81,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 . "/home/cxinu/.deno/env"
+
+# blur
+alias bl="$HOME/.scripts/blur.sh"

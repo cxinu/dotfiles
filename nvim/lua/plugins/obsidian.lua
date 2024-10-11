@@ -9,8 +9,8 @@ return {
     opts = {
         workspaces = {
             {
-                name = "personal",
-                path = "~/vaults/personal",
+                name = "wiki",
+                path = "~/vaults/wiki",
             },
         },
         complitions = {
@@ -26,17 +26,20 @@ return {
             -- vim.ui.open(url) -- need Neovim 0.10.0+
         end,
 
+        -- TODO: 1) Add image path for browser
+        -- Get full path of image
+
         -- Optional, by default when you use `:ObsidianFollowLink` on a link to an image
         -- file it will be ignored but you can customize this behavior here.
         ---@param img string
         follow_img_func = function(img)
+            -- pwd = vim.fn.getcwd()
             -- vim.fn.jobstart({ "qlmanage", "-p", img }) -- Mac OS quick look preview
-            vim.fn.jobstart({ "xdg-open", "-p", img }) -- linux
+            vim.fn.jobstart({ "xdg-open", img }) -- linux
             -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
         end,
         ui = {
             -- ⦿ ○ ● ◉ ◎ ◯ ◦ ☉ ⚫ ⚪
-            --                                
             bullets = { char = "◉", hl_group = "ObsidianBullet" },
             external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
             -- Replace the above with this if you don't have a patched font:
@@ -60,22 +63,6 @@ return {
                 ObsidianHighlightText = { fg = "#1c1c1c", bg = "#bffa37" },
             },
         },
-        -- mappings = {
-        --     ["<C-h>"] = {
-        --         action = function()
-        --             if vim.fn.mode() == "v" or vim.fn.mode() == "V" then
-        --                 vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
-        --                 vim.defer_fn(function() vim.api.nvim_feedkeys("gzaiw==", "n", false) end, 10)
-        --             else
-        --                 vim.api.nvim_feedkeys("ysiw==", "n", false)
-        --             end
-        --         end,
-        --         opts = { noremap = true, silent = true, buffer = true },
-        --     },
-        -- },
-        -- callbacks = {
-        --     init = function() vim.wo.conceallevel = 2 end,
-        -- },
     },
 
     config = function(_, opts)
@@ -90,18 +77,21 @@ return {
                 vim.wo.conceallevel = 0
             end
         end
-        local highlight_text = function()
-            if vim.fn.mode() == "v" or vim.fn.mode() == "V" then
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
-                vim.defer_fn(function() vim.api.nvim_feedkeys("gzaiw==", "n", false) end, 10)
-            else
-                vim.api.nvim_feedkeys("ysiw==", "n", false)
-            end
-        end
+
+        -- BUGS: shi doesn't work rn
+        -- TODO: 2) make highlight, bold, italic, underline, strikethrough, and code work
+        -- TODO: 3) fix todo-comments as well
+        -- local highlight_text = function()
+        --     if vim.fn.mode() == "v" or vim.fn.mode() == "V" then
+        --         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+        --         vim.defer_fn(function() vim.api.nvim_feedkeys("gzaiw==", "n", false) end, 10)
+        --     else
+        --         vim.api.nvim_feedkeys("ysiw==", "n", false)
+        --     end
+        -- end
 
         -- Add a custom mapping to toggle conceallevel
         -- vim.api.nvim_set_keymap("n", "<C-e>", "<cmd>lua require('obsidian').toggle_conceal()<CR>", { noremap = true, silent = true })
         vim.keymap.set({ "n", "i", "v", "x" }, "<C-e>", toggle_conceal, { noremap = true, silent = true })
-        vim.keymap.set({ "n", "i", "v", "x" }, "<C-h>", highlight_text, { noremap = true, silent = true })
     end,
 }
