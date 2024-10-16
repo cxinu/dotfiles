@@ -6,10 +6,10 @@ return {
             local configs = require("nvim-treesitter.configs")
 
             configs.setup({
-                ensure_installed = { "c", "cpp", "lua", "typescript", "go", "html", "zig", "dockerfile" },
+                ensure_installed = { "c", "cpp", "lua", "typescript", "go", "html", "zig", "dockerfile", "markdown" },
                 sync_install = false,
                 auto_install = true,
-                highlight = { enable = true },
+                highlight = { enable = true, disable = { "latex" } },
                 indent = {
                     enable = true,
                     disable = { "zig" },

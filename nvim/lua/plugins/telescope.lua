@@ -72,7 +72,13 @@ return {
             { desc = "[S]earch [/] in Open Files" }
         )
 
-        -- Shortcut for searching your Neovim configuration files
+        -- Shortcut for searching in workspace
         vim.keymap.set("n", "<leader>sn", function() builtin.find_files({ cwd = vim.fn.stdpath("config") }) end, { desc = "[S]earch [N]eovim files" })
+        vim.keymap.set(
+            "n",
+            "<leader>so",
+            function() builtin.find_files({ cwd = "~/vaults/wiki", find_command = { "fd", "--type", "f", "--extension", "md" } }) end,
+            { desc = "[S]earch [O]bsidian" }
+        )
     end,
 }

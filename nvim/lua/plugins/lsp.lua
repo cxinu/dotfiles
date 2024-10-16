@@ -9,6 +9,7 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "L3MON4D3/LuaSnip",
         "onsails/lspkind-nvim",
+        "kdheepak/cmp-latex-symbols",
     },
     config = function()
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -51,7 +52,6 @@ return {
                         },
                         diagnostics = {
                             globals = { "vim" },
-                            -- disable = { "missing-fields", "incomplete-signature-doc" },
                         },
                         workspace = {
                             library = {
@@ -82,6 +82,7 @@ return {
                 { name = "luasnip" },
                 { name = "path" },
                 { name = "buffer" },
+                { name = "latex_symbols" },
             },
             mapping = cmp.mapping.preset.insert({
                 ["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),

@@ -3,8 +3,10 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = {
         indent = {
-            char = "│",
-            tab_char = "│",
+            -- char = "│",
+            -- tab_char = "│",
+            char = "|",
+            tab_char = "|",
         },
         scope = { show_start = false, show_end = false },
     },
