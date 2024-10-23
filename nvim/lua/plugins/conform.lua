@@ -29,6 +29,7 @@ return {
             lua = { "stylua" },
             python = { "isort", "black" },
             go = { "gofmt", "goimports" },
+            asm = { "asmfmt" },
             -- javascript = { "prettierd", "prettier", stop_after_first = true },
         },
     },
