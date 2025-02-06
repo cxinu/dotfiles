@@ -21,6 +21,7 @@ vim.keymap.set("n", "<leader>dd", '"_dd', { desc = "Delete without yanking" })
 -- misc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Append line below" })
+vim.api.nvim_set_keymap("i", "<C-BS>", "<C-w>", { noremap = true })
 
 -- diagnostics
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
@@ -29,7 +30,8 @@ vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { desc = "G
 vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", { desc = "Goto next diagnostic" })
 
 -- Toggles
-vim.keymap.set("n", "<leader>to", function() vim.opt.scrolloff = 999 - vim.o.scrolloff end, { desc = "Toggle Cursor lock" })
+vim.keymap.set("n", "<leader>to", function() vim.opt.scrolloff = 999 - vim.o.scrolloff end,
+    { desc = "Toggle Cursor lock" })
 vim.keymap.set("n", "<leader>ti", vim.cmd.IBLToggle, { desc = "Toggle Indent Blankline" })
 vim.keymap.set("n", "<leader>ts", vim.cmd.IBLToggleScope, { desc = "Toggle Scope Indent Blankline" })
 vim.keymap.set("n", "<leader>tu", vim.cmd.UndotreeToggle, { desc = "Toggle UndoTree" })

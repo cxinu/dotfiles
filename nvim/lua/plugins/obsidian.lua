@@ -72,15 +72,6 @@ return {
 
 		-- BUG: shi doesn't work rn
 		-- TODO: make highlight, bold, italic, underline, strikethrough, and code work
-		--
-		-- local highlight_text = function()
-		--     if vim.fn.mode() == "v" or vim.fn.mode() == "V" then
-		--         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
-		--         vim.defer_fn(function() vim.api.nvim_feedkeys("gzaiw==", "n", false) end, 10)
-		--     else
-		--         vim.api.nvim_feedkeys("ysiw==", "n", false)
-		--     end
-		-- end
 
 		-- remaps
 		vim.keymap.set({ "n", "i", "v", "x" }, "<C-e>", toggle_conceal, { noremap = true, silent = true })

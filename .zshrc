@@ -22,7 +22,7 @@ alias l.='exa -a | egrep "^\."'
 # editor and fetch
 alias vi='nvim'
 alias vim='nvim'
-alias sudovim="sudo -E nvim"
+alias sudonvim="sudo -E nvim"
 alias neofetch="fastfetch"
 alias ff="fastfetch"
 
