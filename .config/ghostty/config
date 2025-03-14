@@ -1,0 +1,17 @@
+theme = "carbonfox"
+term = xterm-kitty
+
+font-family = "JetBrainsMono Nerd Font"
+font-style = "Regular"
+font-size = 15
+
+shell-integration-features = "no-cursor,sudo,no-title"
+window-decoration = none
+window-padding-color = extend
+
+cursor-style = "block"
+cursor-style-blink = false
+confirm-close-surface = false
+
+keybind = ctrl+shift+r=reload_config
+keybind = ctrl+shift+i=ignore

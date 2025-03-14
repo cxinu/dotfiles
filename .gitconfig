@@ -1,3 +1,6 @@
 [user]
 	email = 72374438+cxinu@users.noreply.github.com
 	name = cxinu
+	signingkey = A70D7D37BEF32810
+[commit]
+	gpgSign = true
