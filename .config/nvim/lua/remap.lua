@@ -33,12 +33,14 @@ vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 -----------------------------------------------------------
 -- Clipboard & Register Management
 -----------------------------------------------------------
--- Paste without yanking the replaced text (useful for maintaining your yank buffer)
-vim.keymap.set({ "n", "x", "v" }, "<leader>p", '"_dP', { desc = "Paste without yank" })
 -- Yank to system clipboard
 vim.keymap.set({ "n", "x", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
+-- Paste from system clipboard
+vim.keymap.set({ "n", "x", "v" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+-- Paste without yanking the replaced text (useful for maintaining your yank buffer)
+vim.keymap.set({ "n", "x", "v" }, "<leader>P", '"_dP', { desc = "Paste without yank" })
 -- Delete without yanking (sends to the black hole register)
-vim.keymap.set("n", "<leader>dd", '"_dd', { desc = "Delete without yank" })
+vim.keymap.set({ "n", "x", "v" }, "<leader>dd", '"_dd', { desc = "Delete without yank" })
 
 -----------------------------------------------------------
 -- Diagnostics
