@@ -1147,7 +1147,7 @@ void movemouse(const Arg *arg) {
 			handler[ev.type](&ev);
 			break;
 		case MotionNotify:
-			if ((ev.xmotion.time - lasttime) <= (1000 / 120))
+			if ((ev.xmotion.time - lasttime) <= (1000 / 144))
 				continue;
 			lasttime = ev.xmotion.time;
 
@@ -1293,7 +1293,7 @@ void resizemouse(const Arg *arg) {
 			handler[ev.type](&ev);
 			break;
 		case MotionNotify:
-			if ((ev.xmotion.time - lasttime) <= (1000 / 120))
+			if ((ev.xmotion.time - lasttime) <= (1000 / 144))
 				continue;
 			lasttime = ev.xmotion.time;
 
@@ -1350,11 +1350,11 @@ void restack(Monitor *m) {
 
 void run(void) {
 	XEvent ev;
-	/* main event loop */
+	// main event loop
 	XSync(dpy, False);
 	while (running && !XNextEvent(dpy, &ev))
 		if (handler[ev.type])
-			handler[ev.type](&ev); /* call handler */
+			handler[ev.type](&ev); // call handler
 }
 
 void scan(void) {
