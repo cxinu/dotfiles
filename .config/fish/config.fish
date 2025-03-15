@@ -15,6 +15,10 @@ if test -f /tmp/ranger_wal.sh
 end
 
 wal -R -q
+if test -f ~/.cache/wal/colors.fish
+    source ~/.cache/wal/colors.fish
+end
+
 set -g fish_greeting ""  # Suppress fish greeting
 
 # fastfetch
