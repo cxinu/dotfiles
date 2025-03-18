@@ -46,6 +46,8 @@ alias vim="NVIM_APPNAME=vim nvim"
 alias r1="~/.scripts/r1.sh"
 alias blr="~/.scripts/blur.sh"
 
+alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :100 {}' --info=inline | xargs -r $EDITOR"
+
 
 # pnpm
 set -gx PNPM_HOME "/home/cxinu/.local/share/pnpm"
@@ -57,6 +59,7 @@ end
 starship init fish | source
 set -Ux EDITOR nvim
 
+set -x FZF_DEFAULT_COMMAND "rg --files --hidden --glob '!nix-store/*'"
 set -x LIBGL_ALWAYS_SOFTWARE 0
 set -x MESA_LOADER_DRIVER_OVERRIDE i965
 
@@ -80,3 +83,6 @@ if test -f "/home/cxinu/miniforge3/etc/fish/conf.d/mamba.fish"
     source "/home/cxinu/miniforge3/etc/fish/conf.d/mamba.fish"
 end
 # <<< conda initialize <<<
+
+# direnv hook
+direnv hook fish | source

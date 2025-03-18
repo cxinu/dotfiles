@@ -1,5 +1,5 @@
 theme = "carbonfox"
-term = xterm-kitty
+# term = xterm-kitty
 
 font-family = "JetBrainsMono Nerd Font"
 font-style = "Regular"
