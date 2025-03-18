@@ -58,4 +58,3 @@ vim.opt.timeoutlen = 300  -- Time to wait for a mapped sequence to complete
 -- Other Settings
 -----------------------------------------------------------
 vim.opt.showmode = false -- We use a statusline, so no need for the default mode display
-

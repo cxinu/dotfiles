@@ -40,12 +40,12 @@ vim.keymap.set({ "n", "x", "v" }, "<leader>p", '"+p', { desc = "Paste from syste
 -- Paste without yanking the replaced text (useful for maintaining your yank buffer)
 vim.keymap.set({ "n", "x", "v" }, "<leader>P", '"_dP', { desc = "Paste without yank" })
 -- Delete without yanking (sends to the black hole register)
-vim.keymap.set({ "n", "x", "v" }, "<leader>dd", '"_dd', { desc = "Delete without yank" })
+vim.keymap.set({ "n", "x", "v" }, "<leader>x", '"_dd', { desc = "Delete without yank" })
 
 -----------------------------------------------------------
 -- Diagnostics
 -----------------------------------------------------------
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show diagnostic float" })
 vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Go to previous diagnostic" })
 vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Go to next diagnostic" })
@@ -84,3 +84,8 @@ vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w><C-k>", { noremap = true, silent =
 vim.keymap.set("t", "<C-x>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode" })
 -- Backspace behavior in insert mode for terminal (same as normal mode)
 vim.api.nvim_set_keymap("i", "<C-BS>", "<C-w>", { noremap = true })
+
+-----------------------------------------------------------
+-- Window Management
+-----------------------------------------------------------
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Close window" })
