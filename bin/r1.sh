@@ -62,7 +62,7 @@ echo "$RESPONSE" | while IFS= read -r line; do
         break
     fi
 
-    CONTENT=$(echo "$line" | jq '.choices[0].delta.content // empty' 2>/dev/null)
+    CONTENT=$(echo "$line" | jq -r '.choices[0].delta.content // empty' 2>/dev/null)
 
     if [[ "$CONTENT" == "\""* ]]; then
         CONTENT="${CONTENT%\"}"
@@ -73,4 +73,3 @@ echo "$RESPONSE" | while IFS= read -r line; do
         printf "%b" "$CONTENT"
     fi
 done
-
