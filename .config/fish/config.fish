@@ -18,7 +18,7 @@ set -g fish_greeting ""
 
 # Functions
 function ff
-    set logo (find /home/cxinu/pfp -type f \( -iname "*.png" \) | shuf -n 1)
+    set logo (find /home/cxinu/Pictures/pfp -type f \( -iname "*.png" \) | shuf -n 1)
     fastfetch --config nyarch --kitty-direct $logo --logo-height 4 --logo-padding 1
 end
 
@@ -49,6 +49,8 @@ set -gx LIBGL_ALWAYS_SOFTWARE 0
 set -gx MESA_LOADER_DRIVER_OVERRIDE i965
 set -gx MANPAGER "nvim +Man!"
 set -gx MANWIDTH 120
+set -gx _JAVA_AWT_WM_NONREPARENTING 1
+set -gx BAT_THEME "base16"
 
 # Add to PATH
 set -gx PATH $PATH $HOME/Odin
