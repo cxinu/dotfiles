@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
-#define SCREENSHOT_CMD "~/.scripts/screenshot.sh"
+#define SCREENSHOT_CMD "~/bin/screenshot.sh"
 #define TERMNIAL_CMD "ghostty"
 
 /* appearance */
@@ -42,6 +42,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{"Gimp", NULL, NULL, 0, 1, -1},
+	{"dolphin", NULL, NULL, 0, 1, -1},
 	{"Firefox", NULL, NULL, 1 << 8, 0, -1},
 };
 
