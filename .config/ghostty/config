@@ -1,17 +1,18 @@
-theme = "carbonfox"
-# term = xterm-kitty
+theme = carbonfox
 
-font-family = "JetBrainsMono Nerd Font"
-font-style = "Regular"
-font-size = 15
+# font-family = "JetBrainsMono Nerd Font"
+font-family = "Liga SFMono Nerd Font" # https://github.com/shaunsingh/SFMono-Nerd-Font-Ligaturized
+adjust-cell-height = 5%
+font-style = Medium
+font-size = 14
 
-shell-integration-features = "no-cursor,sudo,no-title"
+shell-integration-features = no-cursor,sudo,no-title
 shell-integration = fish
 window-decoration = none
 window-padding-color = extend
 
-cursor-style = "block"
-cursor-style-blink = false
+cursor-style = block
+cursor-style-blink = true
 confirm-close-surface = false
 
 keybind = ctrl+shift+r=reload_config
