@@ -56,4 +56,3 @@ return {
         vim.keymap.set({ "n", "i", "v", "x" }, "<C-e>", toggle_conceal, { noremap = true, silent = true })
     end,
 }
-

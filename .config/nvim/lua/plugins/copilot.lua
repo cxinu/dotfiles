@@ -1,7 +1,7 @@
 local copilot = {
     "github/copilot.vim",
     -- event = "InsertEnter",
-    cmd = 'CopilotGitHub',
+    cmd = 'Copilot',
     config = function()
         vim.g.copilot_no_tab_map = true
         vim.keymap.set("i", "<C-a>", 'copilot#Accept("<CR>")',
@@ -9,6 +9,7 @@ local copilot = {
     end,
 }
 
+-- TODO: connect copilot-cmp with blink.cmp
 local copilot_cmp = {
     "zbirenbaum/copilot-cmp",
     event = "InsertEnter",
@@ -25,4 +26,4 @@ local copilot_cmp = {
     },
 }
 
-return { copilot, copilot_cmp }
+return { copilot }

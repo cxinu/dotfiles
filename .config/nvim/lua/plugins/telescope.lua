@@ -1,3 +1,4 @@
+-- FIX: minimalize and Add useful file navigation
 return {
     "nvim-telescope/telescope.nvim",
     event = "VimEnter",

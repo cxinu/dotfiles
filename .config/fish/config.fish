@@ -51,11 +51,13 @@ set -gx MANPAGER "nvim +Man!"
 set -gx MANWIDTH 120
 set -gx _JAVA_AWT_WM_NONREPARENTING 1
 set -gx BAT_THEME "base16"
+set -gx TERMINAL ghostty
 
 # Add to PATH
 set -gx PATH $PATH $HOME/Odin
 set -gx PATH $PATH $HOME/.cargo/bin
 set -gx PATH $PATH $HOME/.scripts
+set -gx PATH $PATH $HOME/.local/share/nvim/mason/bin
 
 # Initialize starship
 starship init fish | source

@@ -9,7 +9,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",
     callback = function()
-        vim.api.nvim_set_hl(0, "CustomIndentDarkGrey", { fg = "#1F1F1F" })
+        vim.api.nvim_set_hl(0, "IblNormal", { fg = "#1F1F1F" })
+        vim.api.nvim_set_hl(0, 'IblScope', { fg = '#888888' })
     end,
 })
 

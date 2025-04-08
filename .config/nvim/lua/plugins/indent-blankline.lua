@@ -3,11 +3,15 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = {
         indent = {
-            char = "|",
-            tab_char = "|",
-            highlight = "CustomIndentDarkGrey",
+            char = "┃",
+            tab_char = "┃",
+            highlight = "IblNormal",
         },
-        scope = { show_start = false, show_end = false },
+        scope = {
+            show_start = false,
+            show_end = false,
+            highlight = "IblScope",
+        },
     },
     main = "ibl",
     config = function(_, opts)
