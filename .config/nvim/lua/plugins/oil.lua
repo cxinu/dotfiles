@@ -1,6 +1,5 @@
 local oil_nvim = {
     "stevearc/oil.nvim",
-    event = "VimEnter",
     opts = {},
     dependencies = {
         "nvim-tree/nvim-web-devicons",
