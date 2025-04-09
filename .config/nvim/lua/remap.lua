@@ -47,9 +47,6 @@ vim.keymap.set({ "n", "x", "v" }, "<leader>x", '"_dd', { desc = "Delete without 
 -- Diagnostics
 -----------------------------------------------------------
 vim.keymap.set("n", "<leader>d", vim.diagnostic.setqflist, { desc = "Open diagnostics list" })
-vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show diagnostic float" })
-vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Go to previous diagnostic" })
-vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Go to next diagnostic" })
 
 -----------------------------------------------------------
 -- Toggles & Utility Functions
@@ -66,6 +63,7 @@ vim.keymap.set("n", "<leader>tw", function() vim.o.wrap = not vim.o.wrap end, { 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 vim.keymap.set("n", "<space>X", "<cmd>source %<CR>")
 vim.keymap.set("n", "<space>x", ":.lua<CR>")
+vim.keymap.set("v", "<space>x", ":lua<CR>")
 
 -----------------------------------------------------------
 -- Obsidian Integration
