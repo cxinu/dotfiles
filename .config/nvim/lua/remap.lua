@@ -53,7 +53,7 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.setqflist, { desc = "Open diagno
 -----------------------------------------------------------
 -- Toggle cursor lock (adjust scrolloff dynamically)
 vim.keymap.set("n", "<leader>to", function() vim.opt.scrolloff = 999 - vim.o.scrolloff end,
-    { desc = "Toggle cursor lock" })
+  { desc = "Toggle cursor lock" })
 vim.keymap.set("n", "<leader>ti", vim.cmd.IBLToggle, { desc = "Toggle indent guides" })
 vim.keymap.set("n", "<leader>ts", vim.cmd.IBLToggleScope, { desc = "Toggle scope indent" })
 vim.keymap.set("n", "<leader>tu", vim.cmd.UndotreeToggle, { desc = "Toggle UndoTree" })
@@ -77,9 +77,9 @@ vim.keymap.set("n", "<leader>on", vim.cmd.ObsidianQuickSwitch, { desc = "Quick s
 -----------------------------------------------------------
 -- Toggle horizontal terminal window
 vim.keymap.set("n", "<C-o>", ":lua ToggleHorizontalTerm()<CR>",
-    { noremap = true, silent = true, desc = "Toggle terminal (normal mode)" })
+  { noremap = true, silent = true, desc = "Toggle terminal (normal mode)" })
 vim.keymap.set("t", "<C-o>", "<C-\\><C-n>:lua ToggleHorizontalTerm()<CR>",
-    { noremap = true, silent = true, desc = "Toggle terminal (terminal mode)" })
+  { noremap = true, silent = true, desc = "Toggle terminal (terminal mode)" })
 -- Terminal navigation and exit mappings
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w><C-k>", { noremap = true, silent = true, desc = "Window up in terminal" })
 vim.keymap.set("t", "<C-x>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode" })
