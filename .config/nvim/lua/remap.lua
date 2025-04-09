@@ -87,7 +87,9 @@ vim.keymap.set("t", "<C-x>", "<C-\\><C-n>", { noremap = true, silent = true, des
 vim.api.nvim_set_keymap("i", "<C-BS>", "<C-w>", { noremap = true })
 
 -----------------------------------------------------------
--- Quickfix
+-- Quickfix & location-list
 -----------------------------------------------------------
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>", { desc = "Next quickfix item" })
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>", { desc = "Previous quickfix item" })
+vim.keymap.set("n", "<M-l>", "<cmd>lnext<CR>", { desc = "Next location-list item" })
+vim.keymap.set("n", "<M-h>", "<cmd>lprev<CR>", { desc = "Previous location-list item" })
