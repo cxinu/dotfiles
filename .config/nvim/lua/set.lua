@@ -58,3 +58,15 @@ vim.opt.timeoutlen = 300  -- Time to wait for a mapped sequence to complete
 -- Other Settings
 -----------------------------------------------------------
 vim.opt.showmode = false -- We use a statusline, so no need for the default mode display
+
+-- Tree-sitter based folding
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldlevel = 99 -- Start with all folds open
+
+-- Performance improvements
+vim.o.foldminlines = 1 -- Minimum lines to allow folding
+vim.o.foldnestmax = 3  -- Maximum fold nesting level
+
+-- Other Settings
+vim.o.showmode = false -- Disable default mode display (since we use a statusline)

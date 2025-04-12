@@ -48,7 +48,7 @@ return {
     -- Mason and LSP server configuration
     require("mason").setup({})
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls", "clangd", "pyright", "zls", "gopls", "rust_analyzer" },
+      ensure_installed = { "lua_ls", "clangd", "pyright", "ts_ls", "gopls", "zls", "rust_analyzer" },
       handlers = {
         default_setup,
         lua_ls = lua_ls_setup,

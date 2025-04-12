@@ -21,7 +21,7 @@ return {
     local function groq_help()
       dingllm.invoke_llm_and_stream_into_editor({
         url = 'https://api.groq.com/openai/v1/chat/completions',
-        model = 'deepseek-r1-distill-llama-70b',
+        model = 'deepseek-r1-distill-qwen-32b',
         api_key_name = 'GROQ_API_KEY',
         system_prompt = helpful_prompt,
         replace = false,

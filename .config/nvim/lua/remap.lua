@@ -69,8 +69,9 @@ vim.keymap.set("v", "<space>x", ":lua<CR>")
 -- Obsidian Integration
 -----------------------------------------------------------
 vim.keymap.set("n", "<leader>oo", vim.cmd.ObsidianOpen, { desc = "Open in Obsidian" })
-vim.keymap.set("n", "<leader>os", vim.cmd.ObsidianSearch, { desc = "Fuzzy search in Obsidian" })
+vim.keymap.set("n", "<leader>of", vim.cmd.ObsidianSearch, { desc = "Fuzzy search in Obsidian" })
 vim.keymap.set("n", "<leader>on", vim.cmd.ObsidianQuickSwitch, { desc = "Quick switch Obsidian notes" })
+vim.keymap.set("n", "<leader>op", vim.cmd.ObsidianPasteImg, { desc = "Paste image in Obsidian" })
 
 -----------------------------------------------------------
 -- Terminal Integration
