@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
-#define SCREENSHOT_CMD "~/bin/screenshot.sh"
-#define TERMNIAL_CMD "ghostty"
+#define SCREENSHOT_CMD "flameshot gui"
+#define TERMNIAL_CMD "kitty"
 
 /* appearance */
 static const unsigned int borderpx = 0; /* border pixel of windows */
@@ -85,7 +85,7 @@ static const char *termcmd[] = {TERMNIAL_CMD, NULL};
 
 /* custom commands */
 static const char *rofi[] = {"rofi", "-show", "drun", "-show-icons", NULL};
-static const char *code[] = {"code", NULL};
+static const char *code[] = {"nvim", NULL};
 
 /* volume control */
 static const char *upvol[] = {"pamixer", "--increase", "5", NULL};

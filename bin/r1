@@ -11,7 +11,7 @@ fi
 
 PROMPT="$1"
 API_URL="https://api.groq.com/openai/v1/chat/completions"
-MODEL="deepseek-r1-distill-llama-70b"
+MODEL="deepseek-r1-distill-qwen-32b"
 
 PAYLOAD=$(jq -n \
     --arg model "$MODEL" \

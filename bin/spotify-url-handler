@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Extract the Spotify URI
+url="$1"
+
+if [[ "$url" == https://open.spotify.com/* ]]; then
+    uri=$(echo "$url" | sed -E 's|https://open\.spotify\.com/|spotify:|' | sed 's|/|:|g')
+    spotify --uri="$uri"
+elif [[ "$url" == spotify:* ]]; then
+    spotify --uri="$url"
+else
+    brave "$url"
+fi
