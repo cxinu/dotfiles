@@ -1,19 +1,17 @@
-# Source private config if exists
-if test -f ~/.config/fish/config-private.fish
+if test -f ~/.config/fish/config-private.fish # Source private config if exists
     source ~/.config/fish/config-private.fish
 end
-
-# Handle wal and ranger_wal
+if test -f ~/.cache/wal/colors.fish
+    source ~/.cache/wal/colors.fish
+end
 if test -f /tmp/ranger_wal.sh
     source /tmp/ranger_wal.sh
     rm /tmp/ranger_wal.sh
 end
-wal -R -q
-if test -f ~/.cache/wal/colors.fish
-    source ~/.cache/wal/colors.fish
+if test "$TERM" = "xterm-kitty"
+    wal -R -q
 end
 
-# Set fish greeting
 set -g fish_greeting ""
 
 # Functions
@@ -28,23 +26,19 @@ end
 
 # Aliases
 alias rn="ranger"
-alias wn="ranger ~/wallpapers"
-alias sp="spotify_player"
+alias wn="ranger $HOME/wallpapers"
 alias ghce="gh copilot explain"
 alias ghcs="gh copilot suggest"
 alias sudonvim="sudo -E nvim"
 alias vim="NVIM_APPNAME=vim nvim"
-alias r1="~/.scripts/r1.sh"
-alias blr="~/.scripts/blur.sh"
-alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :100 {}' --info=inline | xargs -r $EDITOR"
+# alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :100 {}' --info=inline | xargs -r $EDITOR"
+alias cdf='cd "$(fd --type d --hidden --exclude .git --exclude /nix/store --exclude .nix-store . / | fzf)"'
+
+
 
 # Environment variables
+set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden"
 set -gx EDITOR nvim
-set -gx PNPM_HOME "/home/cxinu/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH $PNPM_HOME $PATH
-end
-set -gx FZF_DEFAULT_COMMAND "rg --files --hidden --glob '!nix-store/*'"
 set -gx LIBGL_ALWAYS_SOFTWARE 0
 set -gx MESA_LOADER_DRIVER_OVERRIDE i965
 set -gx MANPAGER "nvim +Man!"
@@ -53,11 +47,28 @@ set -gx _JAVA_AWT_WM_NONREPARENTING 1
 set -gx BAT_THEME "base16"
 set -gx TERMINAL ghostty
 
+set -gx PNPM_HOME "/home/cxinu/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH $PNPM_HOME $PATH
+end
+
+
 # Add to PATH
-set -gx PATH $PATH $HOME/Odin
-set -gx PATH $PATH $HOME/.cargo/bin
-set -gx PATH $PATH $HOME/.scripts
-set -gx PATH $PATH $HOME/.local/share/nvim/mason/bin
+for dir in \
+    $HOME/bin \
+    $HOME/.local/bin \
+    $HOME/.cargo/bin \
+    $HOME/Odin \
+    $HOME/.local/share/nvim/mason/bin \
+
+    if test -d $dir
+        set -gx PATH $PATH $dir
+    end
+end
+
+
+# fzf shell integration
+fzf --fish | source
 
 # Initialize starship
 starship init fish | source
