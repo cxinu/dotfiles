@@ -25,7 +25,7 @@ function ffa
 end
 
 function nvim
-    command nohup neovide $argv > /dev/null 2>&1 &
+    command nohup neovide $argv > /dev/null 2>&1 & disown
 end
 
 # Aliases
