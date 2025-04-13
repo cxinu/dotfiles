@@ -24,6 +24,10 @@ function ffa
     fastfetch --config arch
 end
 
+function nvim
+    command nohup neovide $argv > /dev/null 2>&1 &
+end
+
 # Aliases
 alias rn="ranger"
 alias wn="ranger $HOME/wallpapers"
@@ -31,6 +35,7 @@ alias ghce="gh copilot explain"
 alias ghcs="gh copilot suggest"
 alias sudonvim="sudo -E nvim"
 alias vim="NVIM_APPNAME=vim nvim"
+alias neovim="command nvim"
 # alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :100 {}' --info=inline | xargs -r $EDITOR"
 alias cdf='cd "$(fd --type d --hidden --exclude .git --exclude /nix/store --exclude .nix-store . / | fzf)"'
 

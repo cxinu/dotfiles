@@ -3,6 +3,9 @@ return {
   build = ":Cord update",
   event = "VeryLazy",
   opts = {
+    editor = {
+      tooltip = "Ur Moms Favorite Text-Editor"
+    },
     display = {
       theme = 'atom',
       flavor = 'accent',

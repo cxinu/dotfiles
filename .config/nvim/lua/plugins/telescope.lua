@@ -11,7 +11,14 @@ return {
     require("telescope").setup({
       defaults = {
         mappings = {
-          i = { ["<M-p>"] = action_layout.toggle_preview, },
+          i = {
+            ["<C-BS>"] = function()
+              vim.api.nvim_feedkeys(
+                vim.api.nvim_replace_termcodes("<C-w>", true, false, true),
+                "i", true)
+            end,
+            ["<M-p>"] = action_layout.toggle_preview,
+          },
         },
       },
       pickers = {

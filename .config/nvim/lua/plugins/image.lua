@@ -1,5 +1,6 @@
 return {
   "3rd/image.nvim",
+  enabled = not vim.g.neovide,
   config = function()
     require("image").setup({
       backend = "kitty",

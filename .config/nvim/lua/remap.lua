@@ -84,8 +84,9 @@ vim.keymap.set("t", "<C-o>", "<C-\\><C-n>:lua ToggleHorizontalTerm()<CR>",
 -- Terminal navigation and exit mappings
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w><C-k>", { noremap = true, silent = true, desc = "Window up in terminal" })
 vim.keymap.set("t", "<C-x>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode" })
--- Backspace behavior in insert mode for terminal (same as normal mode)
-vim.api.nvim_set_keymap("i", "<C-BS>", "<C-w>", { noremap = true })
+
+-- Backspace behavior in insert mode for terminal (and other modes)
+vim.keymap.set({ 'i', 'c', 't' }, '<C-BS>', '<C-w>', { noremap = true, desc = "Delete previous word" })
 
 -----------------------------------------------------------
 -- Quickfix & location-list
