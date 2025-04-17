@@ -26,3 +26,6 @@ vim.diagnostic.config({
     current_line = true,
   },
 })
+
+-- silence deprecate warning in neovim-git
+vim.deprecate = function() end
