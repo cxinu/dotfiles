@@ -1,35 +1,41 @@
 from ranger.api.commands import Command
-import subprocess
+import os
 
-class wall_exec(Command):
-    """
-    :wall_exec
-
-    Asynchronously applies the wallpaper using nitrogen and then runs `wal -i`
-    on the selected image, all without exiting Ranger.
-    """
+class set_wallpaper(Command):
     def execute(self):
-        image_path = self.fm.thisfile.path  # Get the selected file
-        cmd = f"nitrogen --set-zoom-fill --save '{image_path}' && wal -i '{image_path}'"
-        subprocess.Popen(
-            cmd,
-            shell=True,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL
-        )
+        filepath = self.fm.thisfile.path
+        os.system(f"nitrogen --set-zoom-fill --save '{filepath}' &>/dev/null &")
+        self.fm.notify(f"Wallpaper set: {filepath}")
+        return
 
-class wall_nitrogen(Command):
-    """
-    :wall_nitrogen
 
-    Applies the wallpaper using nitrogen.
-    """
+class set_colortheme(Command):
     def execute(self):
-        image_path = self.fm.thisfile.path  # Get the selected file
-        cmd = f"nitrogen --set-zoom-fill --save '{image_path}'"
-        subprocess.Popen(
-            cmd,
-            shell=True,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL
-        )
+        filepath = self.fm.thisfile.path
+        os.system(f"wal -nqi '{filepath}' &>/dev/null &")
+        self.fm.notify(f"Colortheme set: {filepath}")
+        return
+
+class set_live(Command):
+    """
+    :set_wallpaper
+
+    Sets the selected file as wallpaper:
+    - Images: Uses `nitrogen`
+    - Videos: Uses `xwinwrap` (live wallpaper)
+    """
+
+    VIDEO_EXTS = ('.mp4', '.webm', '.mkv', '.mov', '.avi', '.gif')
+
+    def execute(self):
+        file = self.fm.thisfile.path
+        ext = os.path.splitext(file)[1].lower()
+
+        if ext in self.VIDEO_EXTS:
+            os.system("pkill xwinwrap && sleep 0.8")
+            os.system(f"xwinwrap -ni -fs -ov -un -- mpv -wid WID --loop --no-audio '{file}' &> /dev/null &")
+            self.fm.notify(f"Setting live wallpaper: {file}")
+        else:
+            os.system("pkill xwinwrap")
+            os.system(f"nitrogen --set-zoom-fill --save '{file}' &> /dev/null &")
+            self.fm.notify(f"Setting wallpaper: {file}")
