@@ -36,7 +36,7 @@ return {
 
     local builtin = require("telescope.builtin")
     vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
-    vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
+    vim.keymap.set("n", "<leader>-", builtin.find_files, { desc = "[F]ind [F]iles" })
     vim.keymap.set("n", "<leader>fn", function() builtin.find_files({ cwd = vim.fn.stdpath("config") }) end,
       { desc = "[F]ind [N]eovim files" })
     vim.keymap.set("n", "<leader>fm", builtin.man_pages, { desc = "[F]ind [M]an Pages" })

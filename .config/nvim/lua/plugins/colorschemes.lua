@@ -33,7 +33,7 @@ local onedark = {
 local tokyonightStyles = { comments = { italic = false } }
 local tokyonightOpts = {
   style = "night",
-  transparent = true,
+  transparent = false,
   styles = tokyonightStyles,
   on_highlights = function(hl, c)
     -- Make completion menu transparent
