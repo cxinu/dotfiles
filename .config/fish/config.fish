@@ -1,17 +1,9 @@
 if test -f ~/.config/fish/config-private.fish # Source private config if exists
     source ~/.config/fish/config-private.fish
 end
-if test -f ~/.cache/wal/colors.fish
-    source ~/.cache/wal/colors.fish
-end
-if test -f /tmp/ranger_wal.sh
-    source /tmp/ranger_wal.sh
-    rm /tmp/ranger_wal.sh
-end
-if test "$TERM" = "xterm-kitty"
-    wal -R -q
-end
-
+# if test "$TERM" = "xterm-kitty"
+#     wal -R -q -n
+# end
 
 # Functions
 function ff
@@ -24,10 +16,13 @@ end
 function nvim
     command nohup neovide $argv > /dev/null 2>&1 & disown
 end
+function grc
+    gcc $argv && ./a.out && rm a.out
+end
 
 # Aliases
 alias rn="ranger"
-alias wn="ranger $HOME/wallpapers"
+alias wn="ranger ~/wallpapers"
 alias ghce="gh copilot explain"
 alias ghcs="gh copilot suggest"
 alias sudonvim="sudo -E nvim"
@@ -44,8 +39,9 @@ set -gx MANPAGER "nvim +Man!"
 set -gx MANWIDTH 120
 set -gx _JAVA_AWT_WM_NONREPARENTING 1
 set -gx BAT_THEME "base16"
-set -gx TERMINAL ghostty
+set -gx TERMINAL kitty
 set -gx PNPM_HOME $HOME/.local/share/pnpm
+set -x ANDROID_HOME $HOME/opt/android-sdk
 
 # Add to PATH
 fish_add_path $PNPM_HOME
@@ -53,6 +49,9 @@ fish_add_path $HOME/bin
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/nvim/mason/bin
+
+fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
+fish_add_path $ANDROID_HOME/platform-tools
 
 # hooks
 direnv hook fish | source
