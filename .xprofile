@@ -4,5 +4,6 @@ copyq &
 flameshot &
 rfkill unblock bluetooth
 nitrogen --restore &
-dwmblocks &
+# dwmblocks &
+polybar &
 picom &

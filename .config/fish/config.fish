@@ -1,9 +1,6 @@
 if test -f ~/.config/fish/config-private.fish # Source private config if exists
     source ~/.config/fish/config-private.fish
 end
-# if test "$TERM" = "xterm-kitty"
-#     wal -R -q -n
-# end
 
 # Functions
 function ff
@@ -18,6 +15,12 @@ function nvim
 end
 function grc
     gcc $argv && ./a.out && rm a.out
+end
+
+# Init
+if test "$TERM" = "xterm-kitty"
+    # ffa
+    # wal -R -q -n
 end
 
 # Aliases
@@ -49,6 +52,8 @@ fish_add_path $HOME/bin
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/nvim/mason/bin
+fish_add_path /opt/openresty/bin
+fish_add_path $(go env GOPATH)/bin
 
 fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
 fish_add_path $ANDROID_HOME/platform-tools
