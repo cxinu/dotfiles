@@ -38,6 +38,8 @@ vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 vim.keymap.set({ "n", "x", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 -- Paste from system clipboard
 vim.keymap.set({ "n", "x", "v" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+-- Paste from system clipboard Insert Mode
+vim.keymap.set('i', '<C-v>', '<C-r>+', { noremap = true, desc = "Paste from system clipboard" })
 -- Paste without yanking the replaced text (useful for maintaining your yank buffer)
 vim.keymap.set({ "n", "x", "v" }, "<leader>P", '"_dP', { desc = "Paste without yank" })
 -- Delete without yanking (sends to the black hole register)
@@ -81,6 +83,7 @@ vim.keymap.set("n", "<C-o>", ":lua ToggleHorizontalTerm()<CR>",
   { noremap = true, silent = true, desc = "Toggle terminal (normal mode)" })
 vim.keymap.set("t", "<C-o>", "<C-\\><C-n>:lua ToggleHorizontalTerm()<CR>",
   { noremap = true, silent = true, desc = "Toggle terminal (terminal mode)" })
+
 -- Terminal navigation and exit mappings
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w><C-k>", { noremap = true, silent = true, desc = "Window up in terminal" })
 vim.keymap.set("t", "<C-x>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode" })
@@ -91,7 +94,7 @@ vim.keymap.set({ 'i', 'c', 't' }, '<C-BS>', '<C-w>', { noremap = true, desc = "D
 -----------------------------------------------------------
 -- Quickfix & location-list
 -----------------------------------------------------------
-vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>", { desc = "Next quickfix item" })
-vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>", { desc = "Previous quickfix item" })
-vim.keymap.set("n", "<M-l>", "<cmd>lnext<CR>", { desc = "Next location-list item" })
-vim.keymap.set("n", "<M-h>", "<cmd>lprev<CR>", { desc = "Previous location-list item" })
+vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>", { desc = "quickfix Next item" })
+vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>", { desc = "quickfix Prev item" })
+vim.keymap.set("n", "<M-l>", "<cmd>lnext<CR>", { desc = "location-list Next item" })
+vim.keymap.set("n", "<M-h>", "<cmd>lprev<CR>", { desc = "location-list Prev item" })
