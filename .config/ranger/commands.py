@@ -4,9 +4,14 @@ import os
 class set_wallpaper(Command):
     def execute(self):
         filepath = self.fm.thisfile.path
-        os.system(f"nitrogen --set-zoom-fill --save '{filepath}' &>/dev/null &")
+        session = os.environ.get("XDG_SESSION_TYPE", "").lower()
+
+        if session == "wayland":
+            os.system(f"swww img '{filepath}' --transition-type none &>/dev/null &")
+        else:
+            os.system(f"nitrogen --set-zoom-fill --save '{filepath}' &>/dev/null &")
+
         self.fm.notify(f"Wallpaper set: {filepath}")
-        return
 
 
 class set_colortheme(Command):
