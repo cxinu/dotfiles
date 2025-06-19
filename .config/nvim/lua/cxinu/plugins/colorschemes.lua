@@ -5,10 +5,10 @@ local tokyonightOpts = {
   styles = tokyonightStyles,
   on_highlights = function(hl, c)
     -- Make completion menu transparent
-    -- hl.Pmenu = { bg = c.none }
-    -- hl.PmenuSel = { bg = c.dark3 }
-    -- hl.PmenuSbar = { bg = c.none }
-    -- hl.PmenuThumb = { bg = c.dark3 }
+    hl.Pmenu = { bg = c.none }
+    hl.PmenuSel = { bg = c.dark3 }
+    hl.PmenuSbar = { bg = c.none }
+    hl.PmenuThumb = { bg = c.dark3 }
 
     -- Make Telescope transparent
     hl.TelescopeNormal = { bg = c.none }
@@ -34,12 +34,11 @@ local tokyonight = {
 local catpuccin = {
   "catppuccin/nvim",
   name = "catppuccin",
-  priority = 1000
+  priority = 1000,
 }
 
-
 local pywal = {
-  'uZer/pywal16.nvim',
+  "uZer/pywal16.nvim",
 }
 
 return { tokyonight, pywal, catpuccin }

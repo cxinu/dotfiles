@@ -28,7 +28,7 @@ vim.opt.tabstop = 4        -- Number of spaces tabs count for
 vim.opt.softtabstop = 4    -- Number of spaces per tab while editing
 vim.opt.shiftwidth = 4     -- Number of spaces to use for each step of (auto)indent
 vim.opt.expandtab = true   -- Use spaces instead of tabs
--- vim.opt.autoindent = true           -- (Optional) Enable auto-indent
+vim.opt.autoindent = true  -- (Optional) Enable auto-indent
 vim.opt.smartindent = true -- Automatically insert indents in some cases
 vim.opt.breakindent = true -- Wrapped lines continue visually indented
 

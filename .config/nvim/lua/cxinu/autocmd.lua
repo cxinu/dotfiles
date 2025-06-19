@@ -2,7 +2,9 @@
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",
   group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-  callback = function() vim.highlight.on_yank() end,
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
 
 --  Indent lines with custom colors
@@ -10,7 +12,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function()
     vim.api.nvim_set_hl(0, "IblNormal", { fg = "#1F1F1F" })
-    vim.api.nvim_set_hl(0, 'IblScope', { fg = '#888888' })
+    vim.api.nvim_set_hl(0, "IblScope", { fg = "#888888" })
   end,
 })
 
@@ -34,17 +36,17 @@ function ToggleHorizontalTerm()
       horiz_term_win = nil
     else
       -- Reopen the terminal in a horizontal split
-      vim.cmd('split')
-      vim.cmd('buffer ' .. horiz_term_buf)
+      vim.cmd "split"
+      vim.cmd("buffer " .. horiz_term_buf)
       horiz_term_win = vim.api.nvim_get_current_win()
-      vim.cmd('startinsert')
+      vim.cmd "startinsert"
     end
   else
     -- Create a new horizontal split terminal
-    vim.cmd('split')
-    vim.cmd('term')
+    vim.cmd "split"
+    vim.cmd "term"
     horiz_term_buf = vim.api.nvim_get_current_buf()
     horiz_term_win = vim.api.nvim_get_current_win()
-    vim.cmd('startinsert')
+    vim.cmd "startinsert"
   end
 end

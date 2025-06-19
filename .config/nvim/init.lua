@@ -1,1 +1,1 @@
-require("cxinu")
+require "cxinu"

@@ -39,7 +39,7 @@ vim.keymap.set({ "n", "x", "v" }, "<leader>y", '"+y', { desc = "Yank to system c
 -- Paste from system clipboard
 vim.keymap.set({ "n", "x", "v" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
 -- Paste from system clipboard Insert Mode
-vim.keymap.set('i', '<C-v>', '<C-r>+', { noremap = true, desc = "Paste from system clipboard" })
+vim.keymap.set("i", "<C-v>", "<C-r>+", { noremap = true, desc = "Paste from system clipboard" })
 -- Paste without yanking the replaced text (useful for maintaining your yank buffer)
 vim.keymap.set({ "n", "x", "v" }, "<leader>P", '"_dP', { desc = "Paste without yank" })
 -- Delete without yanking (sends to the black hole register)
@@ -54,18 +54,24 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.setqflist, { desc = "Open diagno
 -- Toggles & Utility Functions
 -----------------------------------------------------------
 -- Toggle cursor lock (adjust scrolloff dynamically)
-vim.keymap.set("n", "<leader>to", function() vim.opt.scrolloff = 999 - vim.o.scrolloff end,
-  { desc = "Toggle cursor lock" })
+vim.keymap.set("n", "<leader>to", function()
+  vim.opt.scrolloff = 999 - vim.o.scrolloff
+end, { desc = "Toggle cursor lock" })
 vim.keymap.set("n", "<leader>ti", vim.cmd.IBLToggle, { desc = "Toggle indent guides" })
 vim.keymap.set("n", "<leader>ts", vim.cmd.IBLToggleScope, { desc = "Toggle scope indent" })
 vim.keymap.set("n", "<leader>tu", vim.cmd.UndotreeToggle, { desc = "Toggle UndoTree" })
-vim.keymap.set("n", "<leader>tw", function() vim.o.wrap = not vim.o.wrap end, { desc = "Toggle wrap" })
+vim.keymap.set("n", "<leader>tw", function()
+  vim.o.wrap = not vim.o.wrap
+end, { desc = "Toggle wrap" })
 
 -- Utility remaps
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
-vim.keymap.set("n", "<space>X", "<cmd>source %<CR>")
-vim.keymap.set("n", "<space>x", ":.lua<CR>")
-vim.keymap.set("v", "<space>x", ":lua<CR>")
+vim.keymap.set("n", "<leader>X", "<cmd>source %<CR>")
+vim.keymap.set("n", "<leader>x", ":.lua<CR>")
+vim.keymap.set("v", "<leader>x", ":lua<CR>")
+vim.keymap.set("n", "<leader>W", function()
+  vim.cmd "noautocmd write"
+end, { desc = "Save without formatting" })
 
 -----------------------------------------------------------
 -- Obsidian Integration
@@ -79,17 +85,25 @@ vim.keymap.set("n", "<leader>op", vim.cmd.ObsidianPasteImg, { desc = "Paste imag
 -- Terminal Integration
 -----------------------------------------------------------
 -- Toggle horizontal terminal window
-vim.keymap.set("n", "<C-o>", ":lua ToggleHorizontalTerm()<CR>",
-  { noremap = true, silent = true, desc = "Toggle terminal (normal mode)" })
-vim.keymap.set("t", "<C-o>", "<C-\\><C-n>:lua ToggleHorizontalTerm()<CR>",
-  { noremap = true, silent = true, desc = "Toggle terminal (terminal mode)" })
+vim.keymap.set(
+  "n",
+  "<C-o>",
+  ":lua ToggleHorizontalTerm()<CR>",
+  { noremap = true, silent = true, desc = "Toggle terminal (normal mode)" }
+)
+vim.keymap.set(
+  "t",
+  "<C-o>",
+  "<C-\\><C-n>:lua ToggleHorizontalTerm()<CR>",
+  { noremap = true, silent = true, desc = "Toggle terminal (terminal mode)" }
+)
 
 -- Terminal navigation and exit mappings
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w><C-k>", { noremap = true, silent = true, desc = "Window up in terminal" })
 vim.keymap.set("t", "<C-x>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode" })
 
 -- Backspace behavior in insert mode for terminal (and other modes)
-vim.keymap.set({ 'i', 'c', 't' }, '<C-BS>', '<C-w>', { noremap = true, desc = "Delete previous word" })
+vim.keymap.set({ "i", "c", "t" }, "<C-BS>", "<C-w>", { noremap = true, desc = "Delete previous word" })
 
 -----------------------------------------------------------
 -- Quickfix & location-list
