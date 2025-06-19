@@ -2,6 +2,10 @@ if test -f ~/.config/fish/config-private.fish # Source private config if exists
     source ~/.config/fish/config-private.fish
 end
 
+if test -f ~/.cache/wal/colors.fish
+    source ~/.cache/wal/colors.fish
+end
+
 # Functions
 function ff
     set logo (find /home/cxinu/Pictures/pfp -type f \( -iname "*.png" \) | shuf -n 1)
@@ -32,6 +36,7 @@ alias sudonvim="sudo -E nvim"
 alias vim="NVIM_APPNAME=vim nvim"
 alias neovim="command nvim"
 alias cdf='cd "$(fd --type d --hidden --exclude .git --exclude /nix/store --exclude .nix-store . / | fzf)"'
+alias dc="docker compose"
 
 # Environment variables
 set -g fish_greeting ""
