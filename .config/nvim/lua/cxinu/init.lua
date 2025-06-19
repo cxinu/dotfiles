@@ -1,5 +1,5 @@
-require "cxinu.set"
-require "cxinu.remap"
+require "cxinu.opts"
+require "cxinu.keys"
 require "cxinu.autocmd"
 require "cxinu.usercmd"
 require "cxinu.lazy"

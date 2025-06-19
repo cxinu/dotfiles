@@ -2,7 +2,6 @@ return {
   "epwalsh/obsidian.nvim",
   version = "*",
   lazy = true,
-  ft = "markdown",
   cmd = { "ObsidianOpen", "ObsidianQuickSwitch", "ObsidianSearch", "ObsidianSearchLink", "ObsidianSearchTag" },
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
@@ -43,8 +42,8 @@ return {
   },
   config = function(_, opts)
     require("obsidian").setup(opts)
-    vim.wo.conceallevel = 2
 
+    vim.wo.conceallevel = 2
     local toggle_conceal = function()
       if vim.wo.conceallevel == 0 then
         vim.wo.conceallevel = 2
@@ -54,5 +53,9 @@ return {
     end
 
     vim.keymap.set({ "n", "i", "v", "x" }, "<C-e>", toggle_conceal, { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>oo", vim.cmd.ObsidianOpen, { desc = "Open in Obsidian" })
+    vim.keymap.set("n", "<leader>of", vim.cmd.ObsidianSearch, { desc = "Fuzzy search in Obsidian" })
+    vim.keymap.set("n", "<leader>on", vim.cmd.ObsidianQuickSwitch, { desc = "Quick switch Obsidian notes" })
+    vim.keymap.set("n", "<leader>op", vim.cmd.ObsidianPasteImg, { desc = "Paste image in Obsidian" })
   end,
 }
