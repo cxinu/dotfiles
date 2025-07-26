@@ -5,11 +5,12 @@ return {
   settings = {
     Lua = {
       runtime = { version = "LuaJIT" },
-      diagnostics = { globals = { "jit" } },
+      diagnostics = { globals = { "ngx", "jit" } },
       workspace = {
         library = {
           vim.env.VIMRUNTIME,
           "${3rd}/luv/library",
+          "/opt/openresty/lualib",
         },
       },
     },

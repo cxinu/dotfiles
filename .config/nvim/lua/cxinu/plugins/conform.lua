@@ -10,7 +10,7 @@ return {
         rust = { "rustfmt" },
         markdown = { "prettierd" },
         ts = { "prettierd" },
-        js = { "prettierd" },
+        javascript = { "prettierd" },
         jsx = { "prettierd" },
         tsx = { "prettierd" },
         html = { "prettierd" },

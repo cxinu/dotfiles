@@ -1,8 +1,6 @@
 return {
   "epwalsh/obsidian.nvim",
   version = "*",
-  lazy = true,
-  cmd = { "ObsidianOpen", "ObsidianQuickSwitch", "ObsidianSearch", "ObsidianSearchLink", "ObsidianSearchTag" },
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
     workspaces = {
@@ -11,6 +9,11 @@ return {
     complitions = {
       nvim_cmp = true,
       min_chars = 0,
+    },
+    daily_notes = {
+      folder = "daily",
+      date_format = "%Y-%m-%d",
+      default_tags = { "daily-notes" },
     },
     note_id_func = function(title)
       return title:lower():gsub(" ", "-")
@@ -57,5 +60,6 @@ return {
     vim.keymap.set("n", "<leader>of", vim.cmd.ObsidianSearch, { desc = "Fuzzy search in Obsidian" })
     vim.keymap.set("n", "<leader>on", vim.cmd.ObsidianQuickSwitch, { desc = "Quick switch Obsidian notes" })
     vim.keymap.set("n", "<leader>op", vim.cmd.ObsidianPasteImg, { desc = "Paste image in Obsidian" })
+    vim.keymap.set("n", "<leader>od", vim.cmd.ObsidianDailies, { desc = "Obsidian Daily notes" })
   end,
 }

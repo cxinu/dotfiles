@@ -21,6 +21,31 @@ function grc
     gcc $argv && ./a.out && rm a.out
 end
 
+function __edit_cmd_in_editor
+    set tmpfile (mktemp /tmp/fish_cmd_edit.XXXXXX)
+    commandline > $tmpfile
+    neovim $tmpfile
+    commandline (cat $tmpfile)
+    rm $tmpfile
+end
+
+
+function ranger-cd
+    set tempfile (mktemp)
+    ranger --choosedir=$tempfile $argv
+    if test -f $tempfile
+        set dir (cat $tempfile)
+        if test -n "$dir" -a -d "$dir"
+            cd $dir
+        end
+        rm -f $tempfile
+    end
+end
+
+function fish_user_key_bindings
+    bind \ev __edit_cmd_in_editor
+end
+
 # Init
 if test "$TERM" = "xterm-kitty"
     # ffa
@@ -28,7 +53,7 @@ if test "$TERM" = "xterm-kitty"
 end
 
 # Aliases
-alias rn="ranger"
+alias rn="ranger-cd"
 alias wn="ranger ~/wallpapers"
 alias ghce="gh copilot explain"
 alias ghcs="gh copilot suggest"
@@ -37,6 +62,9 @@ alias vim="NVIM_APPNAME=vim nvim"
 alias neovim="command nvim"
 alias cdf='cd "$(fd --type d --hidden --exclude .git --exclude /nix/store --exclude .nix-store . / | fzf)"'
 alias dc="docker compose"
+
+# should be default?
+alias ip='ip -c'
 
 # Environment variables
 set -g fish_greeting ""
@@ -50,6 +78,7 @@ set -gx BAT_THEME "base16"
 set -gx TERMINAL kitty
 set -gx PNPM_HOME $HOME/.local/share/pnpm
 set -x ANDROID_HOME $HOME/opt/android-sdk
+set -x PGADMIN_CONFIG_LOCAL ~/.config/pgadmin4/config_local.py
 
 # Add to PATH
 fish_add_path $PNPM_HOME
