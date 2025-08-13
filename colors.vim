@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/cxinu/wallpapers/wallhaven-we762p.jpg"
+let background = "#0e2018"
+let foreground = "#c2c7c5"
+let cursor     = "#c2c7c5"
+
+" Colors
+let color0  = "#0e2018"
+let color1  = "#f38ba8"
+let color2  = "#a6e3a1"
+let color3  = "#f9e2af"
+let color4  = "#A7A1A2"
+let color5  = "#f5c2e7"
+let color6  = "#D9D3D2"
+let color7  = "#a6adc8"
+let color8  = "#585b70"
+let color9  = "#f37799"
+let color10 = "#89d88b"
+let color11 = "#ebd391"
+let color12 = "#A7A1A2"
+let color13 = "#f2aede"
+let color14 = "#6bd7ca"
+let color15 = "#bac2de"

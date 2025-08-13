@@ -1,14 +1,19 @@
 return {
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   version = "*",
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = { "nvim-lua/plenary.nvim", "saghen/blink.cmp" },
+
+  ---@module 'obsidian'
+  ---@type obsidian.config
   opts = {
     workspaces = {
       { name = "wiki", path = "~/wiki" },
     },
-    complitions = {
-      nvim_cmp = true,
-      min_chars = 0,
+    legacy_commands = false,
+    completion = {
+      nvim_cmp = false,
+      blink = true,
+      min_char = 1,
     },
     daily_notes = {
       folder = "daily",
@@ -44,7 +49,7 @@ return {
     },
   },
   config = function(_, opts)
-    require("obsidian").setup(opts)
+    local obsidian = require("obsidian").setup(opts)
 
     vim.wo.conceallevel = 2
     local toggle_conceal = function()
@@ -56,10 +61,10 @@ return {
     end
 
     vim.keymap.set({ "n", "i", "v", "x" }, "<C-e>", toggle_conceal, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>oo", vim.cmd.ObsidianOpen, { desc = "Open in Obsidian" })
-    vim.keymap.set("n", "<leader>of", vim.cmd.ObsidianSearch, { desc = "Fuzzy search in Obsidian" })
-    vim.keymap.set("n", "<leader>on", vim.cmd.ObsidianQuickSwitch, { desc = "Quick switch Obsidian notes" })
-    vim.keymap.set("n", "<leader>op", vim.cmd.ObsidianPasteImg, { desc = "Paste image in Obsidian" })
-    vim.keymap.set("n", "<leader>od", vim.cmd.ObsidianDailies, { desc = "Obsidian Daily notes" })
+    vim.keymap.set("n", "<leader>oo", "<cmd>Obsidian open<CR>", { desc = "Obsidian: Open note or current buffer" })
+    vim.keymap.set("n", "<leader>of", "<cmd>Obsidian search<CR>", { desc = "Obsidian: Search notes" })
+    vim.keymap.set("n", "<leader>on", "<cmd>Obsidian quick_switch<CR>", { desc = "Obsidian: Quick switch notes" })
+    vim.keymap.set("n", "<leader>op", "<cmd>Obsidian paste_img<CR>", { desc = "Obsidian: Paste image" })
+    vim.keymap.set("n", "<leader>od", "<cmd>Obsidian dailies<CR>", { desc = "Obsidian: Open dailies picker" })
   end,
 }

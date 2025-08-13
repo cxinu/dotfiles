@@ -5,18 +5,18 @@ return {
     indent = {
       char = "│",
       tab_char = "│",
-      highlight = "IblNormal",
+      -- highlight = "IblNormal",
     },
     scope = {
       show_start = false,
       show_end = false,
-      highlight = "IblScope",
+      -- highlight = "IblScope",
     },
   },
   main = "ibl",
   config = function(_, opts)
     require("ibl").setup(opts)
-    -- vim.cmd("IBLDisable")
-    -- vim.cmd("IBLDisableScope")
+    vim.cmd "IBLDisable"
+    -- vim.cmd "IBLDisableScope"
   end,
 }

@@ -88,6 +88,7 @@ fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/nvim/mason/bin
 fish_add_path /opt/openresty/bin
 fish_add_path $(go env GOPATH)/bin
+fish_add_path $HOME/.config/emacs/bin
 
 fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
 fish_add_path $ANDROID_HOME/platform-tools

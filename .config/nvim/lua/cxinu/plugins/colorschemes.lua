@@ -41,4 +41,9 @@ local pywal = {
   "uZer/pywal16.nvim",
 }
 
-return { tokyonight, pywal, catpuccin }
+local naysayer = {
+  "whizikxd/naysayer-colors.nvim",
+  lazy = false,
+}
+
+return { tokyonight, pywal, catpuccin, naysayer }

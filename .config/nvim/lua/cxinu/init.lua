@@ -11,4 +11,4 @@ vim.diagnostic.config {
 }
 
 vim.deprecate = function() end
-vim.cmd.colorscheme "tokyonight"
+vim.cmd.colorscheme "jai"
