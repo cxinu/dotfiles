@@ -4,7 +4,7 @@ return {
   config = function()
     require("conform").setup {
       formatters_by_ft = {
-        lua = { "stylua" },
+        -- lua = { "stylua" },
         python = { "ruff" },
         go = { "goimports", "gofmt", stop_after_first = true },
         rust = { "rustfmt" },

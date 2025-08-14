@@ -13,7 +13,7 @@ return {
     completion = {
       nvim_cmp = false,
       blink = true,
-      min_char = 1,
+      min_chars = 0,
     },
     daily_notes = {
       folder = "daily",
