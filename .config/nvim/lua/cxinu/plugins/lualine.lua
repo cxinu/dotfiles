@@ -5,7 +5,7 @@ return {
     require("lualine").setup {
       options = {
         icons_enabled = true,
-        -- theme = "pywal16-nvim",
+        -- theme = "glyph",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         globalstatus = true,
@@ -20,7 +20,7 @@ return {
           },
           {
             "diff",
-            colored = true, -- Enable colored diff symbols
+            colored = true,                                           -- Enable colored diff symbols
             symbols = { added = "+", modified = "~", removed = "-" }, -- Optional: Customize symbols
             diff_color = {
               added = { fg = "#a6e3a1" },
@@ -42,7 +42,7 @@ return {
         lualine_c = {
           {
             "filename",
-            path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+            path = 1,          -- 0 = just filename, 1 = relative path, 2 = absolute path
             -- color = { fg = "#222222" }, -- dimmed gray color
             color = "Comment", -- Alternatively use a highlight group: color = 'Comment'
           },

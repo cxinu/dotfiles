@@ -16,7 +16,7 @@ return {
       min_chars = 0,
     },
     daily_notes = {
-      folder = "daily",
+      folder = "journel/daily",
       date_format = "%Y-%m-%d",
       default_tags = { "daily-notes" },
     },
@@ -37,19 +37,17 @@ return {
         ObsidianTodo = { bold = true, fg = "#f78c6c" },
         ObsidianDone = { bold = true, fg = "#89ddff" },
         ObsidianRightArrow = { bold = true, fg = "#f78c6c" },
-        ObsidianTilde = { bold = true, fg = "#ff5370" },
-        ObsidianImportant = { bold = true, fg = "#eed202" },
-        ObsidianBullet = { bold = true, fg = "#89ddff" },
-        ObsidianRefText = { underline = true, fg = "#c792ea" },
-        ObsidianExtLinkIcon = { fg = "#c792ea" },
+        ObsidianTilde = { bold = true, fg = "#cc3388" },
+        ObsidianImportant = { bold = true, fg = "#eed262" },
+        ObsidianBullet = { bold = true, fg = "#90ddff" },
         ObsidianTag = { italic = true, fg = "#89ddff" },
         ObsidianBlockID = { italic = true, fg = "#89ddff" },
-        ObsidianHighlightText = { fg = "#1c1c1c", bg = "#b581fe" },
+        ObsidianHighlightText = { fg = "#1c1c1c", bg = "#a566d0" },
       },
     },
   },
   config = function(_, opts)
-    local obsidian = require("obsidian").setup(opts)
+    require("obsidian").setup(opts)
 
     vim.wo.conceallevel = 2
     local toggle_conceal = function()

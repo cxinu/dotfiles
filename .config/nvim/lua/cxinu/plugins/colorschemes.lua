@@ -46,4 +46,30 @@ local naysayer = {
   lazy = false,
 }
 
-return { tokyonight, pywal, catpuccin, naysayer }
+local glyph = {
+  dir = "~/Programming/cxinu/glyph.nvim",
+  name = "glyph.nvim",
+  lazy = false,
+  priority = 1000,
+}
+
+local nordic = {
+  'AlexvZyl/nordic.nvim',
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require('nordic').load()
+  end
+}
+
+local sonokai = {
+  "sainnhe/sonokai",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    -- vim.g.sonokai_style = "shusia" -- or: andromeda, atlantis, shusia, maia, espresso
+    vim.g.sonokai_better_performance = 1
+  end,
+}
+
+return { sonokai, nordic, tokyonight, pywal, catpuccin, naysayer, glyph }

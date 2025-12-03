@@ -21,6 +21,8 @@ function grc
     gcc $argv && ./a.out && rm a.out
 end
 
+
+
 function __edit_cmd_in_editor
     set tmpfile (mktemp /tmp/fish_cmd_edit.XXXXXX)
     commandline > $tmpfile
@@ -53,6 +55,7 @@ if test "$TERM" = "xterm-kitty"
 end
 
 # Aliases
+alias tel="shutdown now"
 alias rn="ranger-cd"
 alias wn="ranger ~/wallpapers"
 alias ghce="gh copilot explain"
