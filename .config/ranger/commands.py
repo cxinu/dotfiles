@@ -22,25 +22,28 @@ class set_colortheme(Command):
         return
 
 class set_live(Command):
-    """
-    :set_wallpaper
-
-    Sets the selected file as wallpaper:
-    - Images: Uses `nitrogen`
-    - Videos: Uses `xwinwrap` (live wallpaper)
-    """
-
     VIDEO_EXTS = ('.mp4', '.webm', '.mkv', '.mov', '.avi', '.gif')
 
     def execute(self):
         file = self.fm.thisfile.path
         ext = os.path.splitext(file)[1].lower()
+        session = os.environ.get("XDG_SESSION_TYPE", "").lower()
 
-        if ext in self.VIDEO_EXTS:
-            os.system("pkill xwinwrap && sleep 0.8")
-            os.system(f"xwinwrap -ni -fs -ov -un -- mpv -wid WID --loop --no-audio '{file}' &> /dev/null &")
-            self.fm.notify(f"Setting live wallpaper: {file}")
+        if session == "wayland":
+            # Kill previous mpvpaper instance
+            os.system("pkill mpvpaper &>/dev/null")
+            if ext in self.VIDEO_EXTS:
+                os.system(f"mpvpaper '*' -o \"no-audio loop\" '{file}' &>/dev/null &")
+                self.fm.notify(f"Live wallpaper set: {file}")
+            else:
+                os.system(f"swww img '{file}' --transition-type none &>/dev/null &")
+                self.fm.notify(f"Static wallpaper set: {file}")
         else:
-            os.system("pkill xwinwrap")
-            os.system(f"nitrogen --set-zoom-fill --save '{file}' &> /dev/null &")
-            self.fm.notify(f"Setting wallpaper: {file}")
+            # X11 fallback
+            os.system("pkill xwinwrap &>/dev/null")
+            if ext in self.VIDEO_EXTS:
+                os.system(f"xwinwrap -ni -fs -ov -un -- mpv -wid WID --loop --no-audio '{file}' &>/dev/null &")
+                self.fm.notify(f"Live wallpaper set: {file}")
+            else:
+                os.system(f"nitrogen --set-zoom-fill --save '{file}' &>/dev/null &")
+                self.fm.notify(f"Static wallpaper set: {file}")
