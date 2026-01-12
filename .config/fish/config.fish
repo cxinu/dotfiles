@@ -48,6 +48,11 @@ function fish_user_key_bindings
     bind \ev __edit_cmd_in_editor
 end
 
+function load_opencv
+    set -gx PYTHONPATH /home/cxinu/Programming/github/opencv/build/lib/python3 $PYTHONPATH
+    echo "OpenCV build loaded into PYTHONPATH"
+end
+
 # Init
 if test "$TERM" = "xterm-kitty"
     # ffa

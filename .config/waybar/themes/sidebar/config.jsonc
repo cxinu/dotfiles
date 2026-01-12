@@ -373,7 +373,7 @@
     "tooltip-format": "{timeTo} {capacity} % | {power} W"
   },
   "clock": {
-    "format": "{:%H\n%M}",
+    "format": "{:%I\n%M}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "month",
