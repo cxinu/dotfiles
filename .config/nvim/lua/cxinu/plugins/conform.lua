@@ -4,7 +4,7 @@ return {
   config = function()
     require("conform").setup {
       formatters_by_ft = {
-        -- lua = { "stylua" },
+        lua = { "stylua" },
         python = { "ruff" },
         go = { "goimports", "gofmt", stop_after_first = true },
         rust = { "rustfmt" },
@@ -17,11 +17,20 @@ return {
         json = { "prettierd", "jq", stop_after_first = true },
         sh = { "shfmt" },
         nix = { "nixpkgs_fmt" },
+        c = { "clang-format" },
+        cpp = { "clang-format" },
       },
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_format = "fallback",
-      },
+      format_on_save = function(bufnr)
+        local skip_filetypes = { "c", "cpp" }
+        local ft = vim.bo[bufnr].filetype
+        if vim.tbl_contains(skip_filetypes, ft) then
+          return nil
+        end
+        return {
+          timeout_ms = 500,
+          lsp_format = "fallback",
+        }
+      end,
     }
   end,
 }

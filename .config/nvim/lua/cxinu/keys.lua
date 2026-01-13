@@ -61,10 +61,16 @@ vim.keymap.set(
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w><C-k>", { noremap = true, silent = true, desc = "Window up in terminal" })
 vim.keymap.set("t", "<C-x>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode" })
 
-vim.keymap.set("n", "<C-S-h>",
-  function()
-    local result = vim.treesitter.get_captures_at_cursor(0)
-    print(vim.inspect(result))
-  end,
-  { noremap = true, silent = false }
-)
+-- Grap highlight colors from treesitter
+vim.keymap.set("n", "<C-S-h>", function()
+  local result = vim.treesitter.get_captures_at_cursor(0)
+  print(vim.inspect(result))
+end, { noremap = true, silent = false })
+
+-- Autoformat (conform)
+vim.keymap.set({ "n", "v" }, "<leader>cf", function()
+  require("conform").format {
+    async = true,
+    lsp_fallback = true,
+  }
+end, { desc = "Format buffer or selection" })
