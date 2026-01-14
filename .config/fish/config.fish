@@ -45,7 +45,7 @@ function ranger-cd
 end
 
 function fish_user_key_bindings
-    bind \ev __edit_cmd_in_editor
+    bind \ce __edit_cmd_in_editor
 end
 
 function load_opencv
