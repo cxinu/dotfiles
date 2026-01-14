@@ -4,7 +4,6 @@ return {
   dependencies = { "nvim-lua/plenary.nvim", "saghen/blink.cmp" },
 
   ---@module 'obsidian'
-  ---@type obsidian.config
   opts = {
     workspaces = {
       { name = "wiki", path = "~/wiki" },
@@ -22,9 +21,6 @@ return {
     },
     note_id_func = function(title)
       return title:lower():gsub(" ", "-")
-    end,
-    follow_url_func = function(url)
-      vim.ui.open(url)
     end,
     ui = {
       bullets = { char = "◉", hl_group = "ObsidianBullet" },

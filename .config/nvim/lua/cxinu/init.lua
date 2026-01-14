@@ -10,5 +10,4 @@ vim.diagnostic.config {
   },
 }
 
-vim.deprecate = function() end
 vim.cmd.colorscheme "sonokai"

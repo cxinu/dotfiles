@@ -66,11 +66,3 @@ vim.keymap.set("n", "<C-S-h>", function()
   local result = vim.treesitter.get_captures_at_cursor(0)
   print(vim.inspect(result))
 end, { noremap = true, silent = false })
-
--- Autoformat (conform)
-vim.keymap.set({ "n", "v" }, "<leader>cf", function()
-  require("conform").format {
-    async = true,
-    lsp_fallback = true,
-  }
-end, { desc = "Format buffer or selection" })

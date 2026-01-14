@@ -21,7 +21,7 @@ return {
         cpp = { "clang-format" },
       },
       format_on_save = function(bufnr)
-        local skip_filetypes = { "c", "cpp" }
+        local skip_filetypes = { "c", "cpp" } -- skip format_on_save list
         local ft = vim.bo[bufnr].filetype
         if vim.tbl_contains(skip_filetypes, ft) then
           return nil
@@ -32,5 +32,12 @@ return {
         }
       end,
     }
+
+    vim.keymap.set({ "n", "v" }, "<leader>cf", function()
+      require("conform").format {
+        async = true,
+        lsp_fallback = true,
+      }
+    end, { desc = "Format buffer or selection" })
   end,
 }
