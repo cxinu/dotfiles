@@ -70,6 +70,8 @@ alias vim="NVIM_APPNAME=vim nvim"
 alias neovim="command nvim"
 alias cdf='cd "$(fd --type d --hidden --exclude .git --exclude /nix/store --exclude .nix-store . / | fzf)"'
 alias dc="docker compose"
+alias dots='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
+alias ldots='lazygit --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
 
 # should be default?
 alias ip='ip -c'
