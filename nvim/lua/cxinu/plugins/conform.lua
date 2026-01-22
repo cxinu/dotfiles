@@ -14,6 +14,7 @@ return {
         jsx = { "prettierd" },
         tsx = { "prettierd" },
         html = { "prettierd" },
+        css = { "prettierd" },
         json = { "prettierd", "jq", stop_after_first = true },
         sh = { "shfmt" },
         nix = { "nixpkgs_fmt" },
@@ -27,7 +28,7 @@ return {
           return nil
         end
         return {
-          timeout_ms = 500,
+          timeout_ms = 2000,
           lsp_format = "fallback",
         }
       end,
