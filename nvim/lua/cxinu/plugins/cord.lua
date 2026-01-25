@@ -4,11 +4,11 @@ return {
   event = "VeryLazy",
   opts = {
     editor = {
-      tooltip = "Ur Moms Favorite Text-Editor"
+      tooltip = "Ur Moms Favorite Text-Editor",
     },
     display = {
-      theme = 'atom',
-      flavor = 'accent',
+      theme = "atom",
+      flavor = "accent",
       swap_fields = false,
       swap_icons = false,
     },

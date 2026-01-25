@@ -15,7 +15,13 @@ function ffa
     fastfetch --config arch
 end
 function nvim
-    command nohup neovide $argv > /dev/null 2>&1 & disown
+    if test (count $argv) -eq 0
+        command nohup env -C ~/Programming neovide \
+            > /dev/null 2>&1 & disown
+    else
+        command nohup neovide $argv \
+            > /dev/null 2>&1 & disown
+    end
 end
 function grc
     gcc $argv && ./a.out && rm a.out
