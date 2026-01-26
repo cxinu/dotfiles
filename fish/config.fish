@@ -11,9 +11,11 @@ function ff
     set logo (find /home/cxinu/Pictures/pfp -type f \( -iname "*.png" \) | shuf -n 1)
     fastfetch --config nyarch --kitty-direct $logo --logo-height 4 --logo-padding 1
 end
+
 function ffa
     fastfetch --config arch
 end
+
 function nvim
     if test (count $argv) -eq 0
         command nohup env -C ~/Programming neovide \
@@ -23,11 +25,28 @@ function nvim
             > /dev/null 2>&1 & disown
     end
 end
+
 function grc
     gcc $argv && ./a.out && rm a.out
 end
 
+function cdf
+    if test (count $argv) -gt 0
+        set base_dir $argv[1]
+    else
+        set base_dir ~
+    end
 
+    set target (fd --type d --hidden \
+        --exclude .git \
+        --exclude /nix/store \
+        --exclude .nix-store \
+        . $base_dir | fzf)
+
+    if test -n "$target"
+        cd "$target"
+    end
+end
 
 function __edit_cmd_in_editor
     set tmpfile (mktemp /tmp/fish_cmd_edit.XXXXXX)
@@ -36,7 +55,6 @@ function __edit_cmd_in_editor
     commandline (cat $tmpfile)
     rm $tmpfile
 end
-
 
 function ranger-cd
     set tempfile (mktemp)
@@ -74,7 +92,6 @@ alias ghcs="gh copilot suggest"
 alias sudonvim="sudo -E nvim"
 alias vim="NVIM_APPNAME=vim nvim"
 alias neovim="command nvim"
-alias cdf='cd "$(fd --type d --hidden --exclude .git --exclude /nix/store --exclude .nix-store . / | fzf)"'
 alias dc="docker compose"
 alias lg="lazygit"
 alias dots='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
@@ -97,8 +114,6 @@ set -gx PNPM_HOME $HOME/.local/share/pnpm
 set -x ANDROID_HOME $HOME/opt/android-sdk
 set -x PGADMIN_CONFIG_LOCAL ~/.config/pgadmin4/config_local.py
 
-## For development
-set -gx PATH /home/cxinu/Programming/remote/caelestia-cli/bin $PATH
 
 # Add to PATH
 fish_add_path $PNPM_HOME
@@ -116,4 +131,6 @@ fish_add_path $ANDROID_HOME/platform-tools
 # hooks
 starship init fish | source
 direnv hook fish | source
-# fzf --fish | source
+fzf --fish | source
+
+cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
