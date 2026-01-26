@@ -68,7 +68,7 @@ end
 # Aliases
 alias tel="shutdown now"
 alias rn="ranger-cd"
-alias wn="ranger ~/wallpapers"
+alias wn="ranger ~/Pictures/Wallpapers"
 alias ghce="gh copilot explain"
 alias ghcs="gh copilot suggest"
 alias sudonvim="sudo -E nvim"
@@ -76,6 +76,7 @@ alias vim="NVIM_APPNAME=vim nvim"
 alias neovim="command nvim"
 alias cdf='cd "$(fd --type d --hidden --exclude .git --exclude /nix/store --exclude .nix-store . / | fzf)"'
 alias dc="docker compose"
+alias lg="lazygit"
 alias dots='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
 alias ldots='lazygit --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
 
@@ -96,6 +97,9 @@ set -gx PNPM_HOME $HOME/.local/share/pnpm
 set -x ANDROID_HOME $HOME/opt/android-sdk
 set -x PGADMIN_CONFIG_LOCAL ~/.config/pgadmin4/config_local.py
 
+## For development
+set -gx PATH /home/cxinu/Programming/remote/caelestia-cli/bin $PATH
+
 # Add to PATH
 fish_add_path $PNPM_HOME
 fish_add_path $HOME/bin
@@ -110,6 +114,6 @@ fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
 fish_add_path $ANDROID_HOME/platform-tools
 
 # hooks
-direnv hook fish | source
 starship init fish | source
+direnv hook fish | source
 # fzf --fish | source
