@@ -3,7 +3,7 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move to bottom window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move to top window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move to right window" })
-vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Close window" })
+vim.keymap.set("n", "<leader>c", "<cmd>q<CR>", { desc = "Close window" })
 
 -- Scroll and center cursor
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half-page down and center" })
@@ -20,20 +20,13 @@ vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 vim.keymap.set({ "n", "x", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set({ "n", "x", "v" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
 
--- Diagnostics & Quickfix
-local function toggle_diagnostics_qf()
-  local qf = vim.fn.getqflist { winid = 0 }
-  if qf.winid ~= 0 then -- Quickfix is open → close it
-    vim.cmd "cclose"
-  else
-    vim.fn.setqflist {}
-    vim.diagnostic.setqflist { open = true }
-  end
-end
+-- Quickfix & Diagnostics
+local qf_util = require "util.qf"
+vim.keymap.set("n", "<leader>q", qf_util.toggle_qf, { desc = "Toggle [Q]uickfix List" })
+vim.keymap.set("n", "<leader>d", qf_util.toggle_diagnostics, { desc = "Toggle Diagnostics Quickfix" })
 
-vim.keymap.set("n", "<leader>d", toggle_diagnostics_qf, { desc = "Toggle diagnostics quickfix" })
-vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>", { desc = "quickfix Next item" })
-vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>", { desc = "quickfix Prev item" })
+vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>", { desc = "Quickfix Next item" })
+vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>", { desc = "Quickfix Prev item" })
 
 -- Insert mode QoL
 vim.keymap.set("i", "<C-v>", "<C-r>+", { noremap = true, desc = "Paste from system clipboard in insert" })

@@ -9,42 +9,51 @@ return {
   ---@diagnostic disable: missing-fields
   ---@diagnostic enable: missing-fields
   keys = {
-    -- 1. FAST NAVIGATION
     { "<leader><leader>", "<cmd>FzfLua buffers<cr>", desc = "Switch Buffers" },
     { "<leader>-", "<cmd>FzfLua files<cr>", desc = "Find Files (Root)" },
     { "<leader>.", "<cmd>FzfLua oldfiles<cr>", desc = "Recent Files" },
-
-    -- 2. DISCOVERY (The "Pro" Grep Workflow)
+    {
+      "<leader>fn",
+      function()
+        require("fzf-lua").files { cwd = vim.fn.stdpath "config" }
+      end,
+      desc = "Find Neovim Config",
+    },
     { "<leader>fg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep (Global Search)" },
     { "<leader>fw", "<cmd>FzfLua grep_cword<cr>", desc = "Grep Word Under Cursor" },
     { "<leader>fW", "<cmd>FzfLua grep_visual<cr>", mode = "v", desc = "Grep Selection" },
     { "<leader>/", "<cmd>FzfLua lgrep_curbuf<cr>", desc = "Fuzzy Search Current Buffer" },
 
-    -- 3. API DISCOVERY (LSP Replacement for Power Users)
-    { "gd", "<cmd>FzfLua lsp_definitions<cr>", desc = "LSP: Goto Definition" },
-    { "gr", "<cmd>FzfLua lsp_references<cr>", desc = "LSP: Find References" },
-    { "gs", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Fzf: Document Symbols" },
-    { "gS", "<cmd>FzfLua lsp_workspace_symbols<cr>", desc = "Fzf: Workspace Symbols" },
+    { "<leader>la", "<cmd>FzfLua lsp_finder<cr>", desc = "LSP: Finder (Def/Ref/Impl)" },
+    { "<leader>ls", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", desc = "LSP: Live Workspace Symbols" },
+    { "<leader>lS", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "LSP: Document Symbols" },
 
-    -- 4. UTILITY & SYSTEM
+    { "<leader>fm", "<cmd>FzfLua man_pages<cr>", desc = "Find Man Pages" },
+    { "<leader>fb", "<cmd>FzfLua builtin<cr>", desc = "Find Fzf Builtins" },
     { "<leader>fh", "<cmd>FzfLua help_tags<cr>", desc = "Help Tags" },
     { "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Keymaps" },
     { "<leader>fr", "<cmd>FzfLua resume<cr>", desc = "Resume Last Search" },
+    { "<leader>fq", "<cmd>FzfLua quickfix<cr>", desc = "Search Quickfix List" },
     { "<leader>ft", "<cmd>TodoFzfLua<cr>", desc = "Find Todos" },
   },
   opts = {
-    -- The "Pro" look: Minimalist, fast, out of the way
     winopts = {
+      height = 0.85,
+      width = 0.80,
       preview = {
-        default = "bat", -- Use bat for syntax highlighting in preview
         layout = "vertical",
         vertical = "down:45%",
       },
     },
-    fzf_opts = {
-      ["--tiebreak"] = "index", -- Keeps search stable
+    keymap = {
+      fzf = {
+        ["ctrl-q"] = "select-all+accept", -- Send all matches to quickfix
+      },
     },
-    -- Use path.filename_first for better readability in projects
-    files = { formatter = "path.filename_first" },
+    grep = {
+      rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+    },
+    fzf_opts = { ["--tiebreak"] = "index" }, -- Keeps search stable
+    files = { formatter = "path.filename_first" }, -- Use path.filename_first for better readability in projects
   },
 }
