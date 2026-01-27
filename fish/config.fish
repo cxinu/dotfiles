@@ -2,10 +2,6 @@ if test -f ~/.config/fish/config-private.fish # Source private config if exists
     source ~/.config/fish/config-private.fish
 end
 
-if test -f ~/.cache/wal/colors.fish
-    source ~/.cache/wal/colors.fish
-end
-
 # Functions
 function ff
     set logo (find /home/cxinu/Pictures/pfp -type f \( -iname "*.png" \) | shuf -n 1)
@@ -23,28 +19,6 @@ function nvim
     else
         command nohup neovide $argv \
             > /dev/null 2>&1 & disown
-    end
-end
-
-function grc
-    gcc $argv && ./a.out && rm a.out
-end
-
-function cdf
-    if test (count $argv) -gt 0
-        set base_dir $argv[1]
-    else
-        set base_dir ~
-    end
-
-    set target (fd --type d --hidden \
-        --exclude .git \
-        --exclude /nix/store \
-        --exclude .nix-store \
-        . $base_dir | fzf)
-
-    if test -n "$target"
-        cd "$target"
     end
 end
 
@@ -87,8 +61,6 @@ end
 alias tel="shutdown now"
 alias rn="ranger-cd"
 alias wn="ranger ~/Pictures/Wallpapers"
-alias ghce="gh copilot explain"
-alias ghcs="gh copilot suggest"
 alias sudonvim="sudo -E nvim"
 alias vim="NVIM_APPNAME=vim nvim"
 alias neovim="command nvim"
@@ -96,9 +68,6 @@ alias dc="docker compose"
 alias lg="lazygit"
 alias dots='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
 alias ldots='lazygit --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
-
-# should be default?
-alias ip='ip -c'
 
 # Environment variables
 set -g fish_greeting ""
@@ -113,7 +82,7 @@ set -gx TERMINAL kitty
 set -gx PNPM_HOME $HOME/.local/share/pnpm
 set -x ANDROID_HOME $HOME/opt/android-sdk
 set -x PGADMIN_CONFIG_LOCAL ~/.config/pgadmin4/config_local.py
-
+set -gx FZF_DEFAULT_OPTS "--walker=file,dir,hidden" # removes follow (default), otherwise wine pfx inf loop
 
 # Add to PATH
 fish_add_path $PNPM_HOME
