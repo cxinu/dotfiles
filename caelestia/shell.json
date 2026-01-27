@@ -34,7 +34,7 @@
   "general": {
     "logo": "",
     "apps": {
-      "terminal": ["foot"],
+      "terminal": ["kitty"],
       "audio": ["pavucontrol"],
       "playback": ["mpv"],
       "explorer": ["thunar"]
@@ -459,7 +459,7 @@
   },
   "services": {
     "weatherLocation": "",
-    "useFahrenheit": true,
+    "useFahrenheit": false,
     "useTwelveHourClock": true,
     "gpuType": "",
     "visualiserBars": 45,
@@ -480,4 +480,3 @@
     "mediaGif": "root:/assets/bongocat.gif"
   }
 }
-
