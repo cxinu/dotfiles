@@ -32,6 +32,7 @@ local sonokai = {
     vim.g.sonokai_better_performance = 1
   end,
 }
+
 local lackluster = {
   "slugbyte/lackluster.nvim",
   lazy = false,
@@ -42,4 +43,12 @@ local lackluster = {
     -- vim.cmd.colorscheme("lackluster-mint")
   end,
 }
-return { lackluster, sonokai, nordic, pywal, naysayer, glyph }
+
+local monoglow = {
+  "wnkz/monoglow.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {},
+}
+
+return { monoglow, lackluster, sonokai, nordic, pywal, naysayer, glyph }

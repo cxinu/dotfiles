@@ -30,6 +30,10 @@ function __edit_cmd_in_editor
     rm $tmpfile
 end
 
+function errc
+    command $argv 2>| tee /dev/stderr | wl-copy
+end
+
 function ranger-cd
     set tempfile (mktemp)
     ranger --choosedir=$tempfile $argv
@@ -44,6 +48,7 @@ end
 
 function fish_user_key_bindings
     bind \ce __edit_cmd_in_editor
+    bind \cf fzf-cd-widget
 end
 
 function load_opencv
@@ -83,6 +88,13 @@ set -gx PNPM_HOME $HOME/.local/share/pnpm
 set -x ANDROID_HOME $HOME/opt/android-sdk
 set -x PGADMIN_CONFIG_LOCAL ~/.config/pgadmin4/config_local.py
 set -gx FZF_DEFAULT_OPTS "--walker=file,dir,hidden" # removes follow (default), otherwise wine pfx inf loop
+set -gx FZF_ALT_C_OPTS "--walker=dir,hidden"
+set -gx FZF_CTRL_T_OPTS "
+  --preview 'if test -d {}; ls -la --color=always {}; else bat --style=plain --color=always --line-range=:300 {}; end'
+  --preview-window=right:60%
+  --preview-border=line
+"
+# border STYLE: [rounded|sharp|bold|block|thinblock|double|horizontal|vertical|top|bottom|left|right|line|none] (default: line)
 
 # Add to PATH
 fish_add_path $PNPM_HOME
@@ -93,6 +105,7 @@ fish_add_path $HOME/.local/share/nvim/mason/bin
 fish_add_path /opt/openresty/bin
 fish_add_path $(go env GOPATH)/bin
 fish_add_path $HOME/.config/emacs/bin
+fish_add_path $(npm prefix -g)/bin
 
 fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
 fish_add_path $ANDROID_HOME/platform-tools

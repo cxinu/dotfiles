@@ -15,7 +15,7 @@ return {
       min_chars = 0,
     },
     daily_notes = {
-      folder = "journel/daily",
+      folder = "journal/daily",
       date_format = "%Y-%m-%d",
       default_tags = { "daily-notes" },
     },

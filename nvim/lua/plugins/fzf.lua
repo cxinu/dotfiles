@@ -38,11 +38,12 @@ return {
   },
   opts = {
     winopts = {
-      height = 0.85,
-      width = 0.80,
+      split = "belowright new",
+      height = 0.50,
+      width = 1.00,
       preview = {
-        layout = "vertical",
-        vertical = "down:45%",
+        layout = "horizontal", -- Horizontal layout works better for bottom splits
+        horizontal = "right:50%",
       },
     },
     keymap = {
