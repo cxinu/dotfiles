@@ -1,6 +1,6 @@
 # theme = carbonfox
 
-font-family = "JetBrainsMono Nerd Font"
+font-family = "JetBrainsMono NL"
 # font-family = "Liga SFMono Nerd Font" # https://github.com/shaunsingh/SFMono-Nerd-Font-Ligaturized
 # adjust-cell-height = 5%
 # font-style = Medium
@@ -11,15 +11,16 @@ shell-integration = fish
 window-decoration = none
 window-padding-color = extend
 
-cursor-style = block
+cursor-style = bar
 cursor-style-blink = true
+adjust-cursor-thickness = 50%
 confirm-close-surface = false
 
 keybind = ctrl+shift+r=reload_config
 keybind = ctrl+shift+i=ignore
 
 # Bind Ctrl+Backspace to send Ctrl+W (\x17) for deleting the previous word
-keybind = ctrl+backspace=text:\x17
+# keybind = ctrl+backspace=text:\x17
 
 keybind = alt+0=text:\x1b0
 keybind = alt+1=text:\x1b1

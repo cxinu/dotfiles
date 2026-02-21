@@ -12,7 +12,7 @@ function ffa
     fastfetch --config arch
 end
 
-function nvim
+function nv
     if test (count $argv) -eq 0
         command nohup env -C ~/Programming neovide \
             > /dev/null 2>&1 & disown
@@ -20,6 +20,16 @@ function nvim
         command nohup neovide $argv \
             > /dev/null 2>&1 & disown
     end
+end
+
+
+function yap
+    if test (count $argv) -eq 0
+        command yap --mode daily ~/wiki/journal
+        return
+    end
+
+    command yap $argv
 end
 
 function __edit_cmd_in_editor
@@ -63,16 +73,14 @@ if test "$TERM" = "xterm-kitty"
 end
 
 # Aliases
-alias tel="shutdown now"
+alias lg="lazygit"
+alias lgd='lazygit --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
+alias dots='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
 alias rn="ranger-cd"
 alias wn="ranger ~/Pictures/Wallpapers"
-alias sudonvim="sudo -E nvim"
-alias vim="NVIM_APPNAME=vim nvim"
-alias neovim="command nvim"
 alias dc="docker compose"
-alias lg="lazygit"
-alias dots='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
-alias ldots='lazygit --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
+alias tel="shutdown now"
+alias nyap='yd="$HOME/.YapPad" nvim -c "cd $yd" $yd'
 
 # Environment variables
 set -g fish_greeting ""
