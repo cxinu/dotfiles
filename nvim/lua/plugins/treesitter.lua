@@ -9,7 +9,7 @@ return {
       ensure_installed = { "c", "cpp", "lua", "typescript", "go", "html", "zig", "dockerfile", "markdown" },
       sync_install = false,
       auto_install = true,
-      highlight = { enable = false, disable = { "latex" } },
+      highlight = { enable = true, disable = { "latex" } },
       indent = {
         enable = true,
         disable = { "zig" },

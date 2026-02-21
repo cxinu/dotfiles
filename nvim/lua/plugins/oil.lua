@@ -1,16 +1,35 @@
 local oil_nvim = {
-  "stevearc/oil.nvim",
-  opts = {},
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-  },
+  -- "stevearc/oil.nvim",
+  dir = "~/Programming/cloned/oil.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    require("oil").setup({
+    require("oil").setup {
       win_options = {
         signcolumn = "yes:2",
       },
-    })
-    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+      view_options = {
+        show_hidden = false,
+      },
+      columns = {
+        "icon",
+        "permissions",
+        "size",
+        "mtime",
+      },
+    }
+
+    vim.keymap.set("n", "-", function()
+      local ok, oil = pcall(require, "oil")
+      if not ok then
+        return
+      end
+
+      if type(oil.open_split) == "function" then
+        oil.open_split()
+      else
+        oil.open()
+      end
+    end)
   end,
 }
 

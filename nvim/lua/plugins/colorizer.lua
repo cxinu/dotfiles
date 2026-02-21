@@ -3,8 +3,13 @@ return {
   event = "BufReadPost",
   config = function()
     require("colorizer").setup {
-      "*", -- Apply colorizer to all file types
-      css = { rgb_fn = true }, -- Enable parsing of rgb(...) functions in CSS
+      filetypes = {
+        "*",
+        css = { rgb_fn = true },
+      },
+      user_default_options = {
+        names = false,
+      },
     }
   end,
   lazy = true,

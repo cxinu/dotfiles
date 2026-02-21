@@ -10,11 +10,4 @@ vim.diagnostic.config {
   virtual_lines = { current_line = true },
 }
 
--- bellow is removed
-vim.cmd "highlight clear"
-vim.cmd "syntax reset"
-
-vim.o.termguicolors = true
-vim.o.background = "dark"
-
-vim.cmd "colorscheme lackluster-mint"
+vim.cmd "colorscheme mini"

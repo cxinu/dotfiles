@@ -43,7 +43,7 @@ vim.keymap.set("n", "<leader>tw", function()
 end, { desc = "Toggle wrap" })
 
 -- Terminal
-vim.keymap.set({ "n", "t" }, "<C-o>", function()
+vim.keymap.set({ "n", "t" }, "<c-y>", function()
   require("util.terminal").toggle()
 end, { desc = "Toggle terminal" })
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w><C-k>", { noremap = true, silent = true, desc = "Window up in terminal" })
@@ -53,7 +53,7 @@ vim.keymap.set("t", "<C-x>", "<C-\\><C-n>", { noremap = true, silent = true, des
 vim.keymap.set("n", "<leader>X", "<cmd>source %<CR>")
 vim.keymap.set("n", "<leader>x", ":.lua<CR>")
 vim.keymap.set("v", "<leader>x", ":lua<CR>")
-vim.keymap.set("n", "<C-S-h>", function()
+vim.keymap.set("n", "<M-k>", function()
   local result = vim.treesitter.get_captures_at_cursor(0)
   print(vim.inspect(result))
 end, { noremap = true, silent = false })
