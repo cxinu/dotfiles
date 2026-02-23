@@ -255,7 +255,8 @@
     "dragThreshold": 50,
     "vimKeybinds": true,
     "hiddenApps": [
-      "osu-wine"
+      "osu-wine",
+      "emacs"
     ],
     "useFuzzy": {
       "apps": true,

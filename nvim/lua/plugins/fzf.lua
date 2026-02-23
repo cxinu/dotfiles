@@ -12,14 +12,44 @@ return {
     { "<leader><leader>", "<cmd>FzfLua buffers<cr>", desc = "Switch Buffers" },
     { "<leader>-", "<cmd>FzfLua files<cr>", desc = "Find Files (Root)" },
     { "<leader>.", "<cmd>FzfLua oldfiles<cr>", desc = "Recent Files" },
-    {
+
+    { -- neovim config
       "<leader>fn",
       function()
         require("fzf-lua").files { cwd = vim.fn.stdpath "config" }
       end,
       desc = "Find Neovim Config",
     },
-    { "<leader>fg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep (Global Search)" },
+    { -- live grep in specified dir
+      "<leader>fg",
+      function()
+        local dir = vim.fn.input("Grep in dir: ", vim.fn.getcwd(), "dir")
+        if dir ~= "" then
+          require("fzf-lua").live_grep { cwd = dir }
+        end
+      end,
+      desc = "Live Grep (Custom Dir)",
+    },
+    { -- live grep with dir pick fzf
+      "<leader>fG",
+      function()
+        require("fzf-lua").fzf_exec("fd --type d --hidden --exclude .git . /", {
+          prompt = "Grep in Dir> ",
+          preview = "eza --tree --level=2 --color=always {} 2>/dev/null || ls {}",
+          actions = {
+            ["default"] = function(selected)
+              local dir = selected[1] or vim.fn.getcwd()
+              require("fzf-lua").live_grep { cwd = dir }
+            end,
+            ["ctrl-g"] = function()
+              require("fzf-lua").live_grep { cwd = vim.fn.getcwd() }
+            end,
+          },
+        })
+      end,
+      desc = "Live Grep (FZF Dir Pick)",
+    },
+
     { "<leader>fw", "<cmd>FzfLua grep_cword<cr>", desc = "Grep Word Under Cursor" },
     { "<leader>fW", "<cmd>FzfLua grep_visual<cr>", mode = "v", desc = "Grep Selection" },
     { "<leader>/", "<cmd>FzfLua lgrep_curbuf<cr>", desc = "Fuzzy Search Current Buffer" },
@@ -35,6 +65,18 @@ return {
     { "<leader>fr", "<cmd>FzfLua resume<cr>", desc = "Resume Last Search" },
     { "<leader>fq", "<cmd>FzfLua quickfix<cr>", desc = "Search Quickfix List" },
     { "<leader>ft", "<cmd>TodoFzfLua<cr>", desc = "Find Todos" },
+
+    -- Files in arbitrary directory
+    {
+      "<leader>fF",
+      function()
+        local dir = vim.fn.input("Files in dir: ", vim.fn.getcwd(), "dir")
+        if dir ~= "" then
+          require("fzf-lua").files { cwd = dir }
+        end
+      end,
+      desc = "Find Files (Custom Dir)",
+    },
   },
   opts = {
     winopts = {
