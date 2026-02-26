@@ -1,0 +1,47 @@
+# Window and Behavior Options
+set window-title-basename true
+set window-title-page true
+set statusbar-home-tilde true
+set statusbar-page-percent true
+set continuous-hist-save true
+set selection-clipboard clipboard
+set guioptions "s"
+
+# Recolor Options (Dark Mode)
+set recolor true
+set recolor-keephue true
+set recolor-lightcolor "#1f1b18"
+set recolor-darkcolor  "#d4c5b0"
+
+# Core Colors
+set default-bg      "#1f1b18"
+set default-fg      "#d4c5b0"
+set statusbar-bg    "#1f1b18"
+set statusbar-fg    "#d4c5b0"
+set inputbar-bg     "#1f1b18"
+set inputbar-fg     "#e8dcc8"
+set notification-bg "#1f1b18"
+set notification-fg "#d4c5b0"
+
+# Highlights and Selection
+set highlight-color        "rgba(196,165,116,0.5)"
+set highlight-active-color "rgba(122,139,154,0.5)"
+set highlight-fg           "#1f1b18"
+
+# Completion Menu Colors
+set completion-bg           "#3a3a3a"
+set completion-fg           "#8a7f72"
+set completion-highlight-bg "#4a4a4a"
+set completion-highlight-fg "#e8dcc8"
+
+# Notification Colors
+set notification-error-bg   "#b06b6b"
+set notification-error-fg   "#1f1b18"
+set notification-warning-bg "#b8a066"
+set notification-warning-fg "#1f1b18"
+
+# Index Mode Colors
+set index-bg        "#1f1b18"
+set index-fg        "#d4c5b0"
+set index-active-bg "#4a4a4a"
+set index-active-fg "#e8dcc8"

@@ -5,10 +5,11 @@ return {
     require("conform").setup {
       formatters_by_ft = {
         lua = { "stylua" },
-        python = { "ruff" },
+        python = { "black" },
         go = { "goimports", "gofmt", stop_after_first = true },
         rust = { "rustfmt" },
         markdown = { "prettierd" },
+        typst = { "typstyle" },
         ts = { "prettierd" },
         javascript = { "prettierd" },
         jsx = { "prettierd" },

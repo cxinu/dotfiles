@@ -10,4 +10,9 @@ vim.diagnostic.config {
   virtual_lines = { current_line = true },
 }
 
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+  pattern = "*",
+  command = "silent! write",
+})
+
 vim.cmd "colorscheme mini"
