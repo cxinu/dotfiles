@@ -27,18 +27,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Force Treesitter to stick to the Zen palette
-vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = function()
-    local hl = function(g, opts)
-      vim.api.nvim_set_hl(0, g, opts)
-    end
-    local mint = "#789978"
-
-    -- Treesitter groups
-    hl("@variable", { fg = "NONE" }) -- Variables stay neutral (Luster)
-    hl("@function", { fg = mint }) -- Functions are Mint
-    hl("@keyword", { fg = "NONE", bold = true }) -- Keywords are just Bold
-    hl("@string", { fg = mint }) -- Strings are Mint
-    hl("@comment", { fg = "#555555", italic = true })
-  end,
-})
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   callback = function()
+--     local hl = function(g, opts)
+--       vim.api.nvim_set_hl(0, g, opts)
+--     end
+--     local mint = "#789978"
+--
+--     -- Treesitter groups
+--     hl("@variable", { fg = "NONE" }) -- Variables stay neutral (Luster)
+--     hl("@function", { fg = mint }) -- Functions are Mint
+--     hl("@keyword", { fg = "NONE", bold = true }) -- Keywords are just Bold
+--     hl("@string", { fg = mint }) -- Strings are Mint
+--     hl("@comment", { fg = "#555555", italic = true })
+--   end,
+-- })

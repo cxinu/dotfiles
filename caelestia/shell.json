@@ -521,13 +521,7 @@
     "vpn": {
       "enabled": false,
       "provider": [
-        "netbird",
-        {
-          "displayName": "WireGuard",
-          "enabled": true,
-          "interface": "proton0",
-          "name": "wireguard"
-        }
+        "netbird"
       ]
     }
   },
