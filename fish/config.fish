@@ -35,7 +35,7 @@ end
 function __edit_cmd_in_editor
     set tmpfile (mktemp /tmp/fish_cmd_edit.XXXXXX)
     commandline > $tmpfile
-    neovim $tmpfile
+    nvim $tmpfile
     commandline (cat $tmpfile)
     rm $tmpfile
 end
