@@ -123,4 +123,13 @@ starship init fish | source
 direnv hook fish | source
 fzf --fish | source
 
-cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
+if status is-interactive
+    cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
+end
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+set -gx MAMBA_EXE "/home/cxinu/.local/bin/micromamba"
+set -gx MAMBA_ROOT_PREFIX "/home/cxinu/micromamba"
+$MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
+# <<< mamba initialize <<<
