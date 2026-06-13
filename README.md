@@ -15,8 +15,8 @@ This repository contains my personal configurations, managed via a **Git Bare Re
 Add the `dots` alias to your shell profile to interact with the repository.
 
 ```bash
-alias dots='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME/.config'
-echo "alias dots='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME/.config'" >> ~/.config/fish/config.fish
+alias dots='git --git-dir=$HOME/.cfg/ --work-tree=$HOME/.config'
+echo "alias dots='git --git-dir=$HOME/.cfg/ --work-tree=$HOME/.config'" >> ~/.config/fish/config.fish
 
 ```
 
@@ -25,7 +25,7 @@ echo "alias dots='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME/.config'"
 Clone the repository metadata into a hidden directory in your home folder.
 
 ```bash
-git clone --bare https://github.com/cxinu/dotfiles.git $HOME/.cfg
+git clone --bare git@github.com:cxinu/dotfiles.git $HOME/.cfg
 
 ```
 

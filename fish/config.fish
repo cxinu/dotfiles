@@ -75,7 +75,7 @@ end
 # Aliases
 alias lg="lazygit"
 alias lgd='lazygit --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
-alias dots='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
+alias dots='git --git-dir=$HOME/.cfg --work-tree=$HOME/.config'
 alias rn="ranger-cd"
 alias wn="ranger ~/Pictures/Wallpapers"
 alias dc="docker compose"
