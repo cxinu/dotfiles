@@ -1,6 +1,6 @@
 local oil_nvim = {
-  -- "stevearc/oil.nvim",
-  dir = "~/Programming/cloned/oil.nvim",
+  "stevearc/oil.nvim",
+  -- dir = "~/Programming/cloned/oil.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     require("oil").setup {

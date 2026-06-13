@@ -113,7 +113,6 @@ fish_add_path $HOME/.local/share/nvim/mason/bin
 fish_add_path /opt/openresty/bin
 fish_add_path $(go env GOPATH)/bin
 fish_add_path $HOME/.config/emacs/bin
-fish_add_path $(npm prefix -g)/bin
 
 fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
 fish_add_path $ANDROID_HOME/platform-tools
@@ -129,7 +128,6 @@ end
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'micromamba shell init' !!
-set -gx MAMBA_EXE "/home/cxinu/.local/bin/micromamba"
 set -gx MAMBA_ROOT_PREFIX "/home/cxinu/micromamba"
-$MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
+micromamba shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
 # <<< mamba initialize <<<
