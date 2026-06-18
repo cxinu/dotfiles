@@ -1,33 +1,31 @@
-return {
-  "neovim/nvim-lspconfig",
-  event = "BufReadPre",
-  dependencies = {
-    "saghen/blink.cmp",
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-  },
-  config = function()
-    local lsp_keymaps = {
-      { "n", "gd", vim.lsp.buf.definition,      "Goto definition" },
-      { "n", "gD", vim.lsp.buf.declaration,     "Goto declaration" },
-      { "n", "gi", vim.lsp.buf.implementation,  "Goto implementation" },
-      { "n", "go", vim.lsp.buf.type_definition, "Goto type def" },
-    }
-
-    vim.api.nvim_create_autocmd("LspAttach", {
-      desc = "LSP actions",
-      callback = function(event)
-        local buf = event.buf
-        for _, km in ipairs(lsp_keymaps) do
-          vim.keymap.set(km[1], km[2], km[3], { desc = km[4], buffer = buf })
-        end
-      end,
-    })
-
-    -- Mason and default LSP server
-    require("mason").setup({})
-    require("mason-lspconfig").setup({
-      -- ensure_installed = { "lua_ls", "clangd", "ts_ls", "gopls", "zls", "rust_analyzer" },
-    })
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = function(event)
+    local opts = { buffer = event.buf }
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', 'go', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action, opts)
   end,
-}
+})
+
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      runtime = { version = 'LuaJIT' },
+      workspace = {
+        checkThirdParty = false,
+        library = { vim.env.VIMRUNTIME },
+      },
+    },
+  },
+})
+
+local servers = { 'lua_ls', 'pyright' }
+for _, server in ipairs(servers) do
+  vim.lsp.enable(server)
+end
