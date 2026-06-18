@@ -9,7 +9,7 @@ function ff
 end
 
 function ffa
-    fastfetch --config arch
+    fastfetch
 end
 
 function nv
@@ -84,17 +84,20 @@ alias nyap='yd="$HOME/.YapPad" nvim -c "cd $yd" $yd'
 
 # Environment variables
 set -g fish_greeting ""
+set -gx SSL_CERT_FILE /etc/ssl/certs/ca-bundle.crt
+set -Ux ODIN_ROOT ~/opt/Odin
+
 set -gx EDITOR nvim
-set -gx LIBGL_ALWAYS_SOFTWARE 0
-set -gx MESA_LOADER_DRIVER_OVERRIDE i965
+set -gx TERMINAL kitty
 set -gx MANPAGER "nvim +Man!"
 set -gx MANWIDTH 120
-set -gx _JAVA_AWT_WM_NONREPARENTING 1
 set -gx BAT_THEME "base16"
-set -gx TERMINAL kitty
 set -gx PNPM_HOME $HOME/.local/share/pnpm
-set -x ANDROID_HOME $HOME/opt/android-sdk
-set -x PGADMIN_CONFIG_LOCAL ~/.config/pgadmin4/config_local.py
+set -Ux PGADMIN_CONFIG_LOCAL ~/.config/pgadmin4/config_local.py
+
+set -gx MESA_LOADER_DRIVER_OVERRIDE i965
+set -gx LIBGL_ALWAYS_SOFTWARE 0
+set -gx _JAVA_AWT_WM_NONREPARENTING 1
 set -gx FZF_DEFAULT_OPTS "--walker=file,dir,hidden" # removes follow (default), otherwise wine pfx inf loop
 set -gx FZF_ALT_C_OPTS "--walker=dir,hidden"
 set -gx FZF_CTRL_T_OPTS "
@@ -105,14 +108,13 @@ set -gx FZF_CTRL_T_OPTS "
 # border STYLE: [rounded|sharp|bold|block|thinblock|double|horizontal|vertical|top|bottom|left|right|line|none] (default: line)
 
 # Add to PATH
-fish_add_path $PNPM_HOME
 fish_add_path $HOME/bin
+fish_add_path $PNPM_HOME
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/nvim/mason/bin
 fish_add_path /opt/openresty/bin
 fish_add_path $(go env GOPATH)/bin
-fish_add_path $HOME/.config/emacs/bin
 
 fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
 fish_add_path $ANDROID_HOME/platform-tools
@@ -131,3 +133,7 @@ end
 set -gx MAMBA_ROOT_PREFIX "/home/cxinu/micromamba"
 micromamba shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
 # <<< mamba initialize <<<
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/home/cxinu/.local/bin" $PATH
