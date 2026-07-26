@@ -19,8 +19,9 @@ vim.pack.add({
   'https://github.com/folke/todo-comments.nvim',
   'https://github.com/mbbill/undotree',
   'https://github.com/folke/which-key.nvim',
-  'https://github.com/vyfor/cord.nvim',
   'https://github.com/wakatime/vim-wakatime',
+  'https://github.com/rluba/jai.vim',
+  'https://github.com/obsidian-nvim/obsidian.nvim',
   -- dependency
   'https://github.com/nvim-tree/nvim-web-devicons',
 })
@@ -32,6 +33,7 @@ require('plugins.oil')
 require('plugins.lualine')
 require('plugins.fzf')
 require('plugins.conform')
+require('plugins.obsidian')
 
 require('mini.completion').setup()
 require('mini.pairs').setup()

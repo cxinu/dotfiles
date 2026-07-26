@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 
-vim.o.nu = true
-vim.o.rnu = true
+vim.o.number = true
+vim.o.relativenumber = true
 vim.o.cursorline = true
 vim.o.cursorlineopt = 'number'
 
@@ -9,6 +9,7 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 0
 vim.o.expandtab = true
 vim.o.breakindent = true
+vim.o.linebreak = true
 
 vim.o.showmode = false
 vim.o.signcolumn = 'yes'

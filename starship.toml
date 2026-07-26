@@ -16,7 +16,7 @@
 
 add_newline = false
 # A minimal left prompt
-format = """$directory$character"""
+format = "$directory$character"
 palette = "catppuccin_mocha"
 # move the rest of the prompt to the right
 right_format = """$all"""
@@ -30,20 +30,14 @@ error_symbol = '[λ](bold red)'
 '~/tests/starship-custom' = 'work-project'
 
 [git_branch]
-# format =  '[$symbol$branch(:$remote_branch)]($style)'
+# format =  '[$symbol$branch(:$remote_branch)]($style) '
 symbol = " "
 
-[aws]
-format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
-disabled = false
-style = 'bold blue'
-symbol = " "
-
-[golang]
-symbol = '[󰟓  ](bold cyan)'
-
-[rust]
-symbol = '[ ](bold red)'
+# [golang]
+# symbol = '[󰟓  ](bold cyan)'
+#
+# [rust]
+# symbol = '[ ](bold red)'
 
 [nodejs]
 detect_files = ['package.json', '.node-version', '!bunfig.toml', '!bun.lockb', '!bun.lock']

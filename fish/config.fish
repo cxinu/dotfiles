@@ -113,7 +113,7 @@ fish_add_path $PNPM_HOME
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/nvim/mason/bin
-fish_add_path /opt/openresty/bin
+fish_add_path $HOME/opt/jai/bin
 fish_add_path $(go env GOPATH)/bin
 
 fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
@@ -137,3 +137,6 @@ micromamba shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
 
 # Added by Antigravity CLI installer
 set -gx PATH "/home/cxinu/.local/bin" $PATH
+
+# opencode
+fish_add_path /home/cxinu/.opencode/bin

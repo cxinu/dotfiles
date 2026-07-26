@@ -3,13 +3,14 @@ local conform = require('conform')
 local web_types = { 'javascript', 'typescript', 'jsx', 'tsx', 'html', 'css', 'markdown' }
 local formatters_by_ft = {
   lua = { 'stylua' },
-  python = { 'ruff', 'black', stop_after_first = true },
-  go = { 'goimports', 'gofmt', stop_after_first = true },
+  python = { 'ruff' },
+  go = { 'gofmt' },
   rust = { 'rustfmt' },
   typst = { 'typstyle' },
   sh = { 'shfmt' },
   nix = { 'nixpkgs_fmt' },
   c = { 'clang-format' },
+  cu = { 'clang-format' },
   cpp = { 'clang-format' },
   json = { 'prettierd', 'jq', stop_after_first = true },
 }
