@@ -110,7 +110,7 @@ hl.window_rule({ match = { class = "org.telegram.desktop" }, workspace = "4" })
 hl.window_rule({ match = { class = "Spotify" }, workspace = "4" })
 hl.window_rule({ match = { class = "neovide" }, fullscreen = true })
 hl.window_rule({
-	match = { class = "libresplit" },
+	match = { class = "LiveSplitOne" },
 	opacity = "0.4 0.4 override",
 	no_blur = true,
 })
@@ -134,7 +134,7 @@ local screenlock = "caelestia-shell ipc call lock lock"
 
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit())
-hl.bind(mainMod .. " + C", hl.dsp.window.kill())
+hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd(fileManager .. " ~/Pictures/Wallpapers"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
