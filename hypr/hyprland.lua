@@ -45,7 +45,7 @@ hl.config({
 			new_optimizations = true,
 			ignore_opacity = true,
 			noise = 0.3,
-			contrast = 5,
+			contrast = 2,
 			brightness = 1,
 			vibrancy = 0.3,
 			vibrancy_darkness = 0.0,

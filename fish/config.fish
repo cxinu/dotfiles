@@ -115,6 +115,7 @@ fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/nvim/mason/bin
 fish_add_path $HOME/opt/jai/bin
 fish_add_path $(go env GOPATH)/bin
+fish_add_path $HOME/.elan/bin
 
 fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
 fish_add_path $ANDROID_HOME/platform-tools
@@ -140,3 +141,19 @@ set -gx PATH "/home/cxinu/.local/bin" $PATH
 
 # opencode
 fish_add_path /home/cxinu/.opencode/bin
+
+# Raylib & NixOS graphics paths (Build-time & Run-time)
+if not set -q DISPLAY
+    set -gx DISPLAY ":0"
+end
+
+# Build-time: where clang/ld looks for -lX11, -lGL, etc.
+set -gx LIBRARY_PATH /run/current-system/sw/lib $LIBRARY_PATH
+
+# Run-time: where raylib looks for GPU driver & GLX libraries
+set -gx LD_LIBRARY_PATH /run/opengl-driver/lib /run/current-system/sw/lib $LD_LIBRARY_PATH
+
+fish_add_path /home/cxinu/.spicetify
+
+# kilo
+fish_add_path /home/cxinu/.kilo/bin
