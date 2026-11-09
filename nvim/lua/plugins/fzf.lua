@@ -64,8 +64,14 @@ vim.keymap.set('n', '<leader>fF', function()
 end, { desc = 'Find Files (Custom Dir)' })
 
 vim.keymap.set('n', '<leader>fG', function()
-  require('fzf-lua').fzf_exec('fd --type d --hidden --exclude .git . /', {
+  local fd = vim.fn.executable('fd') == 1 and 'fd' or (vim.fn.executable('fdfind') == 1 and 'fdfind' or nil)
+  if not fd then
+    vim.notify('<leader>fG needs `fd` (or `fdfind`) on PATH', vim.log.levels.WARN)
+    return
+  end
+  require('fzf-lua').fzf_exec(fd .. ' --type d --hidden --exclude .git . /', {
     prompt = 'Grep in Dir> ',
+    -- falls back to ls automatically if eza isn't installed
     preview = 'eza --tree --level=2 --color=always {} 2>/dev/null || ls {}',
     actions = {
       ['default'] = function(selected)

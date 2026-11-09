@@ -19,11 +19,13 @@ for _, ft in ipairs(web_types) do
   formatters_by_ft[ft] = { 'prettierd' }
 end
 
+-- Filetypes where format-on-save is skipped (manual <leader>bf still works)
+local skip_on_save = { c = true, cpp = true, cu = true }
+
 conform.setup({
   formatters_by_ft = formatters_by_ft,
   format_on_save = function(bufnr)
-    -- Skip formatting for heavy/slow languages on save
-    if vim.tbl_contains({ 'c', 'cpp' }, vim.bo[bufnr].filetype) then return nil end
+    if skip_on_save[vim.bo[bufnr].filetype] then return nil end
     return {
       timeout_ms = 2000,
       lsp_format = 'fallback',
@@ -37,7 +39,7 @@ vim.keymap.set(
   function()
     conform.format({
       async = true,
-      lsp_fallback = true,
+      lsp_format = 'fallback',
     })
   end,
   { desc = 'Format buffer or selection' }

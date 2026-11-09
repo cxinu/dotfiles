@@ -27,3 +27,11 @@ vim.o.smartcase = true
 vim.o.confirm = true
 vim.o.swapfile = false
 vim.o.undofile = true
+
+vim.o.winborder = 'rounded'
+
+vim.diagnostic.config({
+  virtual_lines = {
+    current_line = true,
+  },
+})

@@ -25,7 +25,7 @@ vim.lsp.config('lua_ls', {
   },
 })
 
-local servers = { 'lua_ls', 'pyrefly', 'gopls', 'ols', 'clangd' }
+local servers = { 'lua_ls', 'pyrefly', 'gopls', 'ols' }
 for _, server in ipairs(servers) do
   vim.lsp.enable(server)
 end

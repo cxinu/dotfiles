@@ -11,8 +11,8 @@ vim.pack.add({
   'https://github.com/stevearc/oil.nvim',
   'https://github.com/ibhagwan/fzf-lua',
   'https://github.com/nvim-lualine/lualine.nvim',
-  'https://github.com/nvim-mini/mini.completion',
   'https://github.com/nvim-mini/mini.pairs',
+  'https://github.com/nvim-treesitter/nvim-treesitter',
   'https://github.com/nvim-treesitter/nvim-treesitter-context',
   'https://github.com/stevearc/quicker.nvim',
   'https://github.com/lewis6991/gitsigns.nvim',
@@ -22,6 +22,8 @@ vim.pack.add({
   'https://github.com/wakatime/vim-wakatime',
   'https://github.com/rluba/jai.vim',
   'https://github.com/obsidian-nvim/obsidian.nvim',
+  'https://github.com/saghen/blink.lib',
+  'https://github.com/saghen/blink.cmp',
   -- dependency
   'https://github.com/nvim-tree/nvim-web-devicons',
 })
@@ -34,8 +36,8 @@ require('plugins.lualine')
 require('plugins.fzf')
 require('plugins.conform')
 require('plugins.obsidian')
+require('plugins.blink')
 
-require('mini.completion').setup()
 require('mini.pairs').setup()
 require('quicker').setup()
 require('gitsigns').setup()
