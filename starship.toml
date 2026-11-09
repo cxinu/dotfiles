@@ -84,3 +84,160 @@ disabled = true
 # base       =  "#1e1e2e"
 # mantle     =  "#181825"
 # crust      =  "#11111b"
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+
+# YAMI: пишет tools/theme.py по палитре шелла
+[palettes.yami]
+black = "#171210"
+red = "#d0352d"
+green = "#83ad65"
+yellow = "#d2993e"
+blue = "#6a7e98"
+purple = "#9e6092"
+cyan = "#619489"
+white = "#91817c"
+bright-black = "#655652"
+bright-red = "#ff5a4c"
+bright-green = "#a5c586"
+bright-yellow = "#e5b665"
+bright-blue = "#8e9eb2"
+bright-purple = "#c184b2"
+bright-cyan = "#86b5a9"
+bright-white = "#e8e0dd"
+accent = "#b37950"
+accent_deep = "#704c32"
+accent_bright = "#e99d68"
+text = "#e8e0dd"
+text_dim = "#91817c"
+text_faint = "#655652"
+bg = "#0e0b0a"
+panel = "#171210"

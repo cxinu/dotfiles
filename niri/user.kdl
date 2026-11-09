@@ -1,0 +1,2 @@
+// your tweaks on top of yami: binds, window rules, outputs. Included after the shell's
+// files, so what you write here wins. Reference: https://github.com/YaLTeR/niri/wiki

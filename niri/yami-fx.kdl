@@ -1,0 +1,83 @@
+// yami: written by the shell (settings → look, windows, games, services). Do not edit by hand: it is rewritten.
+
+// photo and video viewers open as a floating window, not as a new column
+window-rule {
+    match app-id=r#"(?i)(telegram|ayugram|64gram|kotatogram)"# title=r#"^(Media viewer|Просмотр медиа|Медиапросмотрщик)$"#
+    match app-id=r#"^yami-view$"#
+    match app-id=r#"^yami-play$"#
+    match app-id=r#"^imv$"#
+    match app-id=r#"^feh$"#
+    match app-id=r#"^nsxiv$"#
+    match app-id=r#"^sxiv$"#
+    match app-id=r#"^org\.gnome\.Loupe$"#
+    match app-id=r#"^org\.gnome\.eog$"#
+    match app-id=r#"^org\.kde\.gwenview$"#
+    match app-id=r#"^qimgv$"#
+    match app-id=r#"^swayimg$"#
+    match app-id=r#"^mpv$"#
+    match app-id=r#"^vlc$"#
+    match app-id=r#"^org\.gnome\.Showtime$"#
+    open-floating true
+    open-fullscreen false
+    open-focused true
+    default-column-width { proportion 0.62; }
+    default-window-height { proportion 0.78; }
+}
+
+window-rule {
+    match title=r#"^(Picture-in-Picture|Картинка в картинке)$"#
+    open-floating true
+    default-floating-position x=24 y=56 relative-to="bottom-right"
+    default-column-width { fixed 480; }
+    default-window-height { fixed 270; }
+}
+
+// window gaps and border (settings → windows): between windows, from the screen edges
+layout {
+    gaps 8
+    struts {
+        left 0
+        right 0
+        top 0
+        bottom 0
+    }
+    border { on; width 2; }
+}
+
+// games (settings → games)
+window-rule {
+    match app-id=r#"^steam_app_"#
+    match app-id=r#"^gamescope$"#
+    open-fullscreen true
+    variable-refresh-rate true
+    border { off; }
+}
+
+environment {
+    __GL_SHADER_DISK_CACHE_SIZE "12000000000"
+    __GL_SHADER_DISK_CACHE_SKIP_CLEANUP "1"
+    MESA_SHADER_CACHE_MAX_SIZE "12G"
+}
+
+// privacy curtain (settings → screenshots), notifications (settings → services)
+layer-rule {
+    match namespace="^yami-curtain-badge$"
+    block-out-from "screen-capture"
+}
+layer-rule {
+    match namespace="^yami-notif$"
+    block-out-from "screen-capture"
+}
+
+blur {
+    passes 3
+    offset 3
+    noise 0.03
+    saturation 1.2
+}
+
+window-rule {
+    match app-id=r#"^(kitty|foot|Alacritty|org\.wezfurlong\.wezterm|com\.mitchellh\.ghostty)$"#
+    background-effect { blur true; }
+}
+

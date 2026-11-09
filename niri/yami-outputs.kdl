@@ -1,0 +1,10 @@
+// yami: written by the shell (settings → screens). Changes there overwrite this file;
+// your own output tweaks go into user.kdl.
+
+output "eDP-1" {
+    mode "1920x1080@120.213"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+    variable-refresh-rate
+}

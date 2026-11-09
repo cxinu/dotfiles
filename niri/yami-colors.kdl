@@ -1,0 +1,25 @@
+// YAMI: пишет tools/theme.py по палитре шелла. Руками не править.
+layout {
+    border {
+        active-color   "#b37950"
+        inactive-color "#463123"
+        urgent-color   "#e99d68"
+    }
+    tab-indicator {
+        active-color   "#b37950"
+        inactive-color "#463123"
+        urgent-color   "#e99d68"
+    }
+    insert-hint {
+        color "#b3795060"
+    }
+}
+overview {
+    backdrop-color "#0e0b0a"
+}
+recent-windows {
+    highlight {
+        active-color "#b37950ff"
+        urgent-color "#e99d68ff"
+    }
+}

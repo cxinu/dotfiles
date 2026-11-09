@@ -1,0 +1,9 @@
+// yami: written by tools/theme.py (shell settings → look → cursor)
+cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 24
+}
+environment {
+    XCURSOR_THEME "Adwaita"
+    XCURSOR_SIZE "24"
+}

@@ -125,9 +125,9 @@ starship init fish | source
 direnv hook fish | source
 fzf --fish | source
 
-if status is-interactive
-    cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
-end
+# if status is-interactive
+#     cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
+# end
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'micromamba shell init' !!
